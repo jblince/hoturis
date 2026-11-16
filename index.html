@@ -38,6 +38,15 @@ h1,h2,h3,p{margin:0}
 .claro a:focus-visible,.claro button:focus-visible{outline-color:#0A1E38}
 .claro .tag{border-color:rgba(10,30,56,.25)}
 .claro .ph{background:#EEF3F8;border-color:rgba(10,30,56,.25)}
+/* quiz */
+.quiz-fondo{position:fixed;inset:0;z-index:20;background:rgba(5,15,31,.74);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.quiz{background:#FFFFFF;color:#0A1E38;width:100%;max-width:520px;max-height:100%;overflow-y:auto;border-radius:16px;padding:24px 28px 28px;box-sizing:border-box;text-align:left;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.quiz-x{width:44px;height:44px;margin-right:-10px;border:0;background:none;color:#0A1E38;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.quiz-x:hover{background:#EEF3F8}
+.quiz a:focus-visible,.quiz button:focus-visible{outline-color:#0A1E38}
+.opc{display:block;width:100%;min-height:48px;text-align:left;font:inherit;font-size:15px;font-weight:500;color:#0A1E38;padding:12px 16px;border:1px solid;border-radius:10px;cursor:pointer;transition:background-color .2s,border-color .2s}
+.quiz-otra{min-height:44px;padding:0 18px;border:1px solid rgba(10,30,56,.3);border-radius:999px;background:none;color:#0A1E38;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.quiz-otra:hover{border-color:#0A1E38}
 /* internacionales */
 .intl2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(40px,6vw,96px);align-items:start}
 .intl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -112,10 +121,9 @@ h1,h2,h3,p{margin:0}
  .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
  .navlink{font-size:13px}
 }
-@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img{transition:none}}
+@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}}
 </style>
-<style>.hito.pre{opacity:0;transform:translateY(48px)}</style>
-<style>img{max-width:100%}</style>
+<style>.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
 </head>
 <body>
 <div style="width:100%;overflow-x:hidden">
@@ -166,7 +174,7 @@ h1,h2,h3,p{margin:0}
         <a class="dest" href="#"><img src="img/42a9bb0a491c906ef0b738bf59553a32.jpg" alt="Playa de arena blanca con palmeras en Punta Cana"><span class="velo" aria-hidden="true"></span><span class="info"><span class="nombre">Punta Cana</span><span class="meta">6 días · desde $5.490.000</span></span></a>
         <a class="dest" href="#"><img src="img/f59f44c0889a791698b55ad240cf85ad.jpg" alt="Vista de la Gran Vía y el edificio Metrópolis en Madrid"><span class="velo" aria-hidden="true"></span><span class="info"><span class="nombre">Madrid</span><span class="meta">8 días · desde $7.890.000</span></span></a>
         <a class="dest" href="#"><img src="img/09efef9d3d8e8e31f238354d6072e982.jpg" alt="El Coliseo de Roma al atardecer"><span class="velo" aria-hidden="true"></span><span class="info"><span class="nombre">Roma</span><span class="meta">9 días · desde $8.950.000</span></span></a>
-        <div class="dest vacio" role="img" aria-label="Espacio para la foto de Barcelona"><span><span style="display:block;font-size:18px;font-weight:600;color:var(--text)">Barcelona</span>[FOTO, DÍAS Y PRECIO]</span></div>
+        <a class="dest" href="#"><img src="img/2e299febce91acb7cbdab626e127cfb0.jpg" alt="Vista aérea de Barcelona con la Sagrada Familia"><span class="velo" aria-hidden="true"></span><span class="info"><span class="nombre">Barcelona</span><span class="meta">8 días · desde $7.690.000</span></span></a>
       </div>
       <div class="intl-txt">
         <h2 id="t-intl" class="tight" style="font-size:clamp(34px,4vw,56px);color:#C8002E">Internacional</h2>
@@ -178,8 +186,18 @@ h1,h2,h3,p{margin:0}
   </div>
 </section>
 
+<!-- 2b. QUIZ COLOMBIA -->
+<section aria-labelledby="t-quiz" style="background:var(--navy);padding:clamp(88px,11vw,160px) 0;text-align:center">
+  <div class="wrap">
+    <p class="muted" style="font-size:14px">Cinco preguntas, un minuto</p>
+    <h2 id="t-quiz" class="tight" style="font-size:clamp(44px,6.4vw,96px);max-width:13ch;margin:16px auto 0;text-wrap:balance">¿Qué tan bien conoces Colombia?</h2>
+    <p style="font-size:clamp(15px,1.2vw,17px);font-weight:300;line-height:1.5;max-width:42ch;margin:20px auto 0">Pon a prueba lo que sabes de tu país. Quizá descubras tu próximo destino.</p>
+    <button class="pill pill-red" type="button" id="quizOpen" style="margin-top:32px;border:0;cursor:pointer;font-family:inherit">Hacer el quiz <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></button>
+  </div>
+</section>
+
 <!-- 3. NACIONALES -->
-<section class="claro cielo-b" aria-labelledby="t-nac" style="padding:clamp(48px,6vw,88px) 0 clamp(64px,8vw,112px)">
+<section id="nacional" class="claro cielo-b" aria-labelledby="t-nac" style="padding:clamp(48px,6vw,88px) 0 clamp(64px,8vw,112px)">
   <div class="wrap">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 48px;margin-bottom:clamp(28px,3vw,44px)">
       <div>
@@ -365,7 +383,7 @@ h1,h2,h3,p{margin:0}
         <div><p style="font-weight:600;margin-bottom:10px">Síguenos</p><p style="line-height:2"><a href="#">Instagram</a><br><a href="#">Facebook</a></p></div>
       </div>
     </div>
-    <p style="margin-top:44px;padding-top:20px;border-top:1px solid #D9DFE7;font-size:12px;color:#5B6472">RNT 6009. Miembros de IATA y ANATO. Fotos: Unsplash (Darren Lawrence, Jaime Bishara, Levi Ari Pronk, Julian Florez, Victor Rosario, Arthur Hutterer, Marco Grosso, Ricky Beron, Lina Micán, Shawn Appel, Nareeta Martin, chaim weingarten, Krzysztof Dubiel, Ricardo Cifuentes T.).</p>
+    <p style="margin-top:44px;padding-top:20px;border-top:1px solid #D9DFE7;font-size:12px;color:#5B6472">RNT 6009. Miembros de IATA y ANATO. Fotos: Unsplash (Darren Lawrence, Jaime Bishara, Levi Ari Pronk, Julian Florez, Victor Rosario, Arthur Hutterer, Marco Grosso, Ricky Beron, Lina Micán, Shawn Appel, Nareeta Martin, chaim weingarten, Krzysztof Dubiel, Ricardo Cifuentes T., Carles Rabada).</p>
   </div>
 </footer>
 
@@ -373,6 +391,37 @@ h1,h2,h3,p{margin:0}
   <svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"></path><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.5l1-1.2 2 .9c-.2 1.2-1.2 2-2.4 1.8A6.5 6.5 0 0 1 8.2 9.6C8 8.4 8.8 7.4 10 7.2l.9 2-1.2 1"></path></svg>
 </a>
 
+<div id="quizModal" hidden>
+<div class="quiz-fondo">
+  <div class="quiz" role="dialog" aria-modal="true" aria-labelledby="quiz-t">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <p style="font-size:13px;color:#5A6577"><span id="qStep">Pregunta 1 de 5</span></p>
+      <button class="quiz-x" type="button" aria-label="Cerrar el quiz" data-close><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+    <div id="qAsk">
+      <p id="quiz-t" style="font-size:clamp(19px,2vw,23px);font-weight:600;letter-spacing:-.02em;line-height:1.25;margin-top:6px"><span id="qText"></span></p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px">
+        <button class="opc" type="button" id="optA"></button>
+        <button class="opc" type="button" id="optB"></button>
+        <button class="opc" type="button" id="optC"></button>
+      </div>
+      <div id="qAnswered" hidden>
+        <p aria-live="polite" style="margin-top:16px;font-size:14px;line-height:1.5;color:#3A4A60"><span id="qNote"></span></p>
+        <button class="pill pill-dark" type="button" id="qNext" style="margin-top:16px;border:0;cursor:pointer;font-family:inherit"><span id="qNextLabel">Siguiente</span> <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></button>
+      </div>
+    </div>
+    <div id="qDone" hidden>
+      <p class="tight" style="font-size:56px;margin-top:8px;color:#C8002E"><span id="qScore"></span></p>
+      <p id="quiz-t" style="font-size:21px;font-weight:600;letter-spacing:-.02em;margin-top:8px"><span id="qResTitle"></span></p>
+      <p style="font-size:15px;font-weight:300;line-height:1.5;margin-top:6px;color:#3A4A60"><span id="qResText"></span></p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px">
+        <a class="pill pill-red" href="#nacional" data-close>Ver planes nacionales <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+        <button class="quiz-otra" type="button" id="qRestart">Volver a jugar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 <script>
 (function(){
@@ -399,6 +448,40 @@ if(!reduce&&'IntersectionObserver' in window){
 var vh=window.innerHeight;
 var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.remove('pre');io.unobserve(x.target);}})},{threshold:.2});
 document.querySelectorAll('.hito').forEach(function(h){if(h.getBoundingClientRect().top>vh){h.classList.add('pre');io.observe(h);}});
+}
+
+var Q=[
+{q:'¿Por qué al mar de San Andrés le dicen "el mar de los siete colores"?',o:['Por los siete arrecifes que lo rodean','Por sus tonos de azul y verde según la profundidad','Por los siete islotes del archipiélago'],c:1,n:'Según la profundidad y el fondo, el agua pasa del turquesa claro al azul profundo.'},
+{q:'¿En qué departamento queda el Valle de Cocora, hogar de la palma de cera?',o:['Quindío','Boyacá','Nariño'],c:0,n:'Está a pocos minutos de Salento, en pleno Eje Cafetero. La palma de cera es el árbol nacional.'},
+{q:'¿Qué ciudad colombiana es conocida como la capital mundial de la salsa?',o:['Barranquilla','Medellín','Cali'],c:2,n:'Cali, claro. Aquí se baila desde la Feria de Cali hasta cualquier martes.'},
+{q:'¿En qué departamento está el Cabo de la Vela?',o:['Magdalena','La Guajira','Cesar'],c:1,n:'Es territorio wayuu, en la península de La Guajira, donde el desierto se encuentra con el mar.'},
+{q:'¿Qué gran río baña la ciudad de Leticia?',o:['El Amazonas','El Magdalena','El Orinoco'],c:0,n:'Leticia está en la triple frontera con Brasil y Perú, a orillas del Amazonas.'}];
+var modal=document.getElementById('quizModal');
+if(modal){
+var $=function(id){return document.getElementById(id)};
+var opts=[$('optA'),$('optB'),$('optC')],qi=0,qs=-1,qp=0,lastFocus=null;
+function paint(){var cq=Q[qi];
+$('qStep').textContent='Pregunta '+(qi+1)+' de '+Q.length;$('qText').textContent=cq.q;
+opts.forEach(function(b,z){b.textContent=cq.o[z];var bg='#F5F9FD',bd='rgba(10,30,56,.16)';
+if(qs>=0){if(z===cq.c){bg='#E6F4EC';bd='#1E7B45'}else if(z===qs){bg='#FDECEF';bd='#C8002E'}else{bg='#FFFFFF';bd='rgba(10,30,56,.1)'}}
+b.style.background=bg;b.style.borderColor=bd;b.setAttribute('aria-disabled',qs>=0?'true':'false');});
+$('qAnswered').hidden=qs<0;
+if(qs>=0){$('qNote').textContent=(qs===cq.c?'¡Correcto! ':'No era esa. ')+cq.n;$('qNextLabel').textContent=qi===Q.length-1?'Ver resultado':'Siguiente';}}
+function start(){qi=0;qs=-1;qp=0;$('qAsk').hidden=false;$('qDone').hidden=true;paint();}
+function open(){lastFocus=document.activeElement;start();modal.hidden=false;document.body.style.overflow='hidden';opts[0].focus();}
+function close(){modal.hidden=true;document.body.style.overflow='';if(lastFocus)lastFocus.focus();}
+function finish(){$('qAsk').hidden=true;$('qDone').hidden=false;$('qStep').textContent='Resultado';
+$('qScore').textContent=qp+' de '+Q.length;
+$('qResTitle').textContent=qp===Q.length?'¡Conoces Colombia como pocos!':(qp>=3?'¡Muy bien!':'Tienes mucho por descubrir');
+$('qResText').textContent=qp===Q.length?'Ya sabes lo que te espera. ¿Y si esta vez la recorres con nosotros?':(qp>=3?'Te falta poco. Seguro hay un rincón que todavía no conoces.':'Y eso es lo mejor: Colombia te está esperando.');
+$('qRestart').focus();}
+$('quizOpen').addEventListener('click',open);
+opts.forEach(function(b,z){b.addEventListener('click',function(){if(qs>=0)return;qs=z;if(z===Q[qi].c)qp++;paint();$('qNext').focus();});});
+$('qNext').addEventListener('click',function(){if(qi===Q.length-1){finish()}else{qi++;qs=-1;paint();opts[0].focus();}});
+$('qRestart').addEventListener('click',function(){start();opts[0].focus();});
+modal.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',close)});
+modal.addEventListener('click',function(e){if(e.target===modal.firstElementChild)close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
 }
 })();
 </script>
