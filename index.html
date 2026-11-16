@@ -47,21 +47,40 @@ h1,h2,h3,p{margin:0}
 .opc{display:block;width:100%;min-height:48px;text-align:left;font:inherit;font-size:15px;font-weight:500;color:#0A1E38;padding:12px 16px;border:1px solid;border-radius:10px;cursor:pointer;transition:background-color .2s,border-color .2s}
 .quiz-otra{min-height:44px;padding:0 18px;border:1px solid rgba(10,30,56,.3);border-radius:999px;background:none;color:#0A1E38;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
 .quiz-otra:hover{border-color:#0A1E38}
-/* frases animadas */
-.frase{position:relative;height:220vh}
-.frase-pin{position:sticky;top:0;height:100vh;min-height:560px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-.frase{view-timeline-name:--frase;view-timeline-axis:block}
+/* portada que se expande */
+.hero-x{position:relative;height:100vh;min-height:620px;view-timeline-name:--hero;view-timeline-axis:block}
+.hero-pin{position:relative;height:100%;overflow:hidden;background:#F5F9FD;--iy:23%;--ix:36%}
+.hero-media{position:absolute;inset:0;background:#000}
+.logo-c{opacity:0}
+.hero-pista{display:none}
+@supports (animation-timeline: view()){
+ .hero-x{height:260vh;max-height:none}
+ .hero-pin{position:sticky;top:0;height:100vh;min-height:620px}
+ .hero-media{animation:abre linear both;animation-timeline:--hero;animation-range:contain 0% contain 60%}
+ .hero-h1,.hero-x .navlink{animation:tinta linear both;animation-timeline:--hero;animation-range:contain 18% contain 50%}
+ .logo-c{animation:sale linear both;animation-timeline:--hero;animation-range:contain 18% contain 50%}
+ .logo-b{animation:entra linear both;animation-timeline:--hero;animation-range:contain 18% contain 50%}
+ .hero-fin{animation:entra linear both;animation-timeline:--hero;animation-range:contain 58% contain 74%}
+ .hero-pista{display:flex;position:absolute;left:50%;bottom:28px;width:52px;height:52px;margin-left:-26px;border:1px solid rgba(10,30,56,.25);border-radius:50%;align-items:center;justify-content:center;color:#0A1E38;z-index:2;animation:sale linear both;animation-timeline:--hero;animation-range:contain 0% contain 12%}
+}
+@keyframes abre{from{clip-path:inset(var(--iy) var(--ix) round 16px)}to{clip-path:inset(0 0 0 0 round 0)}}
+@keyframes tinta{from{color:#0A1E38}to{color:#FFFFFF}}
+@keyframes sale{from{opacity:1}to{opacity:0}}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* frases tipo máquina de escribir */
+.frase{position:relative}
+.frase-pin{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(96px,11vw,150px) 0 120px;box-sizing:border-box}
 .frase-txt{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(38px,5.6vw,88px);line-height:1.04;letter-spacing:-.015em;color:#0A1E38;max-width:20ch;margin:0 auto;text-wrap:balance}
+.frase-txt .pal{white-space:nowrap}
 .frase-txt .em{font-style:italic;color:#C8002E}
+.frase-txt .c{animation:tecla 1ms linear both;animation-delay:calc(var(--i) * 38ms);animation-play-state:inherit}
+.frase-txt .pal{animation-play-state:inherit}
+.frase-txt .cursor{display:inline-block;width:3px;height:.8em;margin-left:4px;vertical-align:-.05em;background:#C8002E;opacity:0;animation:cursor 1s steps(1) infinite;animation-delay:calc(var(--n) * 38ms);animation-play-state:inherit}
+@keyframes tecla{from{opacity:0}to{opacity:1}}
+@keyframes cursor{0%{opacity:1}50%{opacity:0}}
 .frase-firma{margin-top:28px;font-size:14px;color:#5A6577}
 .frase-pie{position:absolute;left:0;right:0;bottom:32px;display:flex;justify-content:space-between;gap:16px;font-size:13px;color:#3A4A60}
 .frase-pie span:first-child{margin-left:72px}
-@supports (animation-timeline: view()){
- .frase .w{animation:palabra linear both;animation-timeline:--frase;animation-range:contain var(--a) contain var(--b)}
- .frase-firma{animation:palabra linear both;animation-timeline:--frase;animation-range:contain 70% contain 80%}
-}
-@keyframes palabra{from{opacity:.12}to{opacity:1}}
-@supports not (animation-timeline: view()){.frase{height:auto}.frase-pin{position:static;height:auto;min-height:0;padding:clamp(96px,12vw,160px) 0 120px}}
 /* internacionales */
 .intl2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(40px,6vw,96px);align-items:start}
 .intl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -131,7 +150,7 @@ h1,h2,h3,p{margin:0}
 @media (max-width:640px){
  .solo-escritorio{display:none!important}
  .cap-slide{visibility:hidden}
- .frase{height:180vh}
+ .hero-pin{--iy:26%;--ix:16%}
  .frase-pie{flex-direction:column;align-items:center;gap:4px;bottom:24px}.frase-pie span:first-child{margin-left:0}
  .nac>article{grid-template-columns:1fr 112px;gap:16px}
  .cab-intl{grid-template-columns:1fr!important;gap:12px!important}
@@ -139,7 +158,7 @@ h1,h2,h3,p{margin:0}
  .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
  .navlink{font-size:13px}
 }
-@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.frase{height:auto}.frase-pin{position:static;height:auto;min-height:0;padding:120px 0}.frase .w,.frase-firma{animation:none!important;opacity:1}}
+@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
 </style>
 <style>.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
 </head>
@@ -147,32 +166,35 @@ h1,h2,h3,p{margin:0}
 <div style="width:100%;overflow-x:clip">
 
 <!-- 1. HERO -->
-<section aria-label="Portada" style="position:relative;height:100vh;min-height:620px;max-height:980px;overflow:hidden;background:#000">
+<section class="hero-x" aria-label="Portada">
+<div class="hero-pin">
+  <div class="hero-media">
   <img class="slide" src="img/a3f7123642954e91a8e69b16e7d25fc0.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1" data-slide="0">
   <img class="slide" src="img/506ba8beddf4e15cd7de07ebf1088ca6.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="1">
   <img class="slide" src="img/5f9d56b27fdb03cf438a463bb3978761.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="2">
   <img class="slide" src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="3">
   <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,21,42,.45) 0%,rgba(6,21,42,0) 22%,rgba(6,21,42,0) 45%,rgba(6,21,42,.35) 70%,rgba(6,21,42,.7) 100%)"></div>
+  </div>
 
   <header style="position:absolute;top:0;left:0;right:0;z-index:2">
     <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px">
-      <a href="#" style="display:block"><img src="img/53681a562ea3554cd8c712ca74c1c52f.png" alt="Hoturis Agencia de Viajes, inicio" style="display:block;width:clamp(110px,11vw,160px);height:auto"></a>
+      <a href="#" class="hero-logo" style="display:block;position:relative"><img class="logo-b" src="img/53681a562ea3554cd8c712ca74c1c52f.png" alt="Hoturis Agencia de Viajes, inicio" style="display:block;width:clamp(110px,11vw,160px);height:auto"><img class="logo-c" src="img/dfd4ba1e5929c249265e02b3a035e93b.webp" alt="" style="position:absolute;inset:0;width:100%;height:auto"></a>
       <nav aria-label="Principal" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,32px)">
         <a class="navlink" href="#">Planes</a>
         <a class="navlink" href="#">Artículos</a>
         <a class="navlink" href="#">Nosotros</a>
-        <a class="navlink solo-escritorio" href="#" style="border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:9px 18px">Escríbenos por WhatsApp</a>
+        <a class="navlink solo-escritorio" href="#" style="border:1px solid currentColor;border-radius:999px;padding:9px 18px">Escríbenos por WhatsApp</a>
       </nav>
     </div>
   </header>
 
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;padding:0 16px;z-index:1">
-    <h1 class="tight" style="font-size:clamp(72px,11vw,168px);letter-spacing:-.05em;line-height:.9;font-weight:600">Viaja</h1>
-    <p style="font-size:clamp(17px,1.6vw,21px);font-weight:500;margin-top:18px;letter-spacing:-.01em">Nosotros te lo hacemos fácil.</p>
-    <a class="pill pill-white" href="#planes" style="margin-top:26px">Ver planes <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+    <h1 class="tight hero-h1" style="font-size:clamp(72px,11vw,168px);letter-spacing:-.05em;line-height:.9;font-weight:600">Viaja</h1>
+    <p class="hero-fin" style="font-size:clamp(17px,1.6vw,21px);font-weight:500;margin-top:18px;letter-spacing:-.01em">Nosotros te lo hacemos fácil.</p>
+    <a class="pill pill-white hero-fin" href="#planes" style="margin-top:26px">Ver planes <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
   </div>
 
-  <div class="wrap" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#FFFFFF">
+  <div class="wrap hero-fin" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#FFFFFF">
     <p class="cap-slide" style="font-size:13px;line-height:1.4"><span style="font-weight:600"><span id="slideName">San Andrés</span></span><br><span style="opacity:.75"><span id="slideCoords">12.58° N, 81.70° W</span></span></p>
     <div aria-hidden="true" style="display:flex;gap:8px;padding-bottom:6px">
       <span class="bar" style="opacity:1" data-bar="0"></span><span class="bar" style="opacity:.35" data-bar="1"></span><span class="bar" style="opacity:.35" data-bar="2"></span><span class="bar" style="opacity:.35" data-bar="3"></span>
@@ -182,13 +204,15 @@ h1,h2,h3,p{margin:0}
       <svg id="icoPause" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"></rect><rect x="14" y="4.5" width="4" height="15" rx="1"></rect></svg>
     </button>
   </div>
+  <div class="hero-pista" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></div>
+</div>
 </section>
 
 <!-- 1b. FRASE INTERNACIONAL -->
-<section class="frase claro" aria-label="Frase sobre viajar por el mundo" style="background:#FFFFFF">
+<section class="frase claro" data-f="0" aria-label="Frase sobre viajar por el mundo" style="background:#FFFFFF">
   <div class="frase-pin">
     <div class="wrap" style="text-align:center">
-      <p class="frase-txt"><span class="w" style="--a:4.0%;--b:14.0%">El</span> <span class="w" style="--a:8.8%;--b:18.8%">mundo</span> <span class="w" style="--a:13.5%;--b:23.5%">es</span> <span class="w" style="--a:18.3%;--b:28.3%">un</span> <span class="w" style="--a:23.1%;--b:33.1%">libro,</span> <span class="w" style="--a:27.8%;--b:37.8%">y</span> <span class="w" style="--a:32.6%;--b:42.6%">quienes</span> <span class="w" style="--a:37.4%;--b:47.4%">no</span> <span class="w" style="--a:42.2%;--b:52.2%">viajan</span> <span class="w" style="--a:46.9%;--b:56.9%">leen</span> <span class="w em" style="--a:51.7%;--b:61.7%">solo</span> <span class="w em" style="--a:56.5%;--b:66.5%">una</span> <span class="w em" style="--a:61.2%;--b:71.2%">página.</span></p>
+      <p class="frase-txt" aria-label="El mundo es un libro, y quienes no viajan leen solo una página." style="animation-play-state:paused;--n:64"><span aria-hidden="true" style="animation-play-state:inherit"><span class="pal"><span class="c" style="--i:0">E</span><span class="c" style="--i:1">l</span></span> <span class="pal"><span class="c" style="--i:3">m</span><span class="c" style="--i:4">u</span><span class="c" style="--i:5">n</span><span class="c" style="--i:6">d</span><span class="c" style="--i:7">o</span></span> <span class="pal"><span class="c" style="--i:9">e</span><span class="c" style="--i:10">s</span></span> <span class="pal"><span class="c" style="--i:12">u</span><span class="c" style="--i:13">n</span></span> <span class="pal"><span class="c" style="--i:15">l</span><span class="c" style="--i:16">i</span><span class="c" style="--i:17">b</span><span class="c" style="--i:18">r</span><span class="c" style="--i:19">o</span><span class="c" style="--i:20">,</span></span> <span class="pal"><span class="c" style="--i:22">y</span></span> <span class="pal"><span class="c" style="--i:24">q</span><span class="c" style="--i:25">u</span><span class="c" style="--i:26">i</span><span class="c" style="--i:27">e</span><span class="c" style="--i:28">n</span><span class="c" style="--i:29">e</span><span class="c" style="--i:30">s</span></span> <span class="pal"><span class="c" style="--i:32">n</span><span class="c" style="--i:33">o</span></span> <span class="pal"><span class="c" style="--i:35">v</span><span class="c" style="--i:36">i</span><span class="c" style="--i:37">a</span><span class="c" style="--i:38">j</span><span class="c" style="--i:39">a</span><span class="c" style="--i:40">n</span></span> <span class="pal"><span class="c" style="--i:42">l</span><span class="c" style="--i:43">e</span><span class="c" style="--i:44">e</span><span class="c" style="--i:45">n</span></span> <span class="pal em"><span class="c" style="--i:47">s</span><span class="c" style="--i:48">o</span><span class="c" style="--i:49">l</span><span class="c" style="--i:50">o</span></span> <span class="pal em"><span class="c" style="--i:52">u</span><span class="c" style="--i:53">n</span><span class="c" style="--i:54">a</span></span> <span class="pal em"><span class="c" style="--i:56">p</span><span class="c" style="--i:57">á</span><span class="c" style="--i:58">g</span><span class="c" style="--i:59">i</span><span class="c" style="--i:60">n</span><span class="c" style="--i:61">a</span><span class="c" style="--i:62">.</span></span><span class="cursor"></span></span></p>
         <p class="frase-firma">Atribuida a San Agustín</p>
     </div>
     <div class="wrap frase-pie">
@@ -219,10 +243,10 @@ h1,h2,h3,p{margin:0}
 </section>
 
 <!-- 2c. FRASE NACIONAL -->
-<section class="frase claro" aria-label="Frase sobre viajar por Colombia" style="background:#FFFFFF">
+<section class="frase claro" data-f="1" aria-label="Frase sobre viajar por Colombia" style="background:#FFFFFF">
   <div class="frase-pin">
     <div class="wrap" style="text-align:center">
-      <p class="frase-txt"><span class="w" style="--a:4.0%;--b:14.0%">No</span> <span class="w" style="--a:7.3%;--b:17.3%">hace</span> <span class="w" style="--a:10.5%;--b:20.5%">falta</span> <span class="w" style="--a:13.8%;--b:23.8%">cruzar</span> <span class="w" style="--a:17.1%;--b:27.1%">un</span> <span class="w" style="--a:20.3%;--b:30.3%">océano</span> <span class="w" style="--a:23.6%;--b:33.6%">para</span> <span class="w" style="--a:26.8%;--b:36.8%">que</span> <span class="w" style="--a:30.1%;--b:40.1%">el</span> <span class="w" style="--a:33.4%;--b:43.4%">viaje</span> <span class="w" style="--a:36.6%;--b:46.6%">te</span> <span class="w" style="--a:39.9%;--b:49.9%">cambie.</span> <span class="w" style="--a:43.2%;--b:53.2%">A</span> <span class="w" style="--a:46.4%;--b:56.4%">veces</span> <span class="w" style="--a:49.7%;--b:59.7%">basta</span> <span class="w" style="--a:52.9%;--b:62.9%">con</span> <span class="w em" style="--a:56.2%;--b:66.2%">salir</span> <span class="w em" style="--a:59.5%;--b:69.5%">de</span> <span class="w em" style="--a:62.7%;--b:72.7%">Cali.</span></p>
+      <p class="frase-txt" aria-label="No hace falta cruzar un océano para que el viaje te cambie. A veces basta con salir de Cali." style="animation-play-state:paused;--n:93"><span aria-hidden="true" style="animation-play-state:inherit"><span class="pal"><span class="c" style="--i:0">N</span><span class="c" style="--i:1">o</span></span> <span class="pal"><span class="c" style="--i:3">h</span><span class="c" style="--i:4">a</span><span class="c" style="--i:5">c</span><span class="c" style="--i:6">e</span></span> <span class="pal"><span class="c" style="--i:8">f</span><span class="c" style="--i:9">a</span><span class="c" style="--i:10">l</span><span class="c" style="--i:11">t</span><span class="c" style="--i:12">a</span></span> <span class="pal"><span class="c" style="--i:14">c</span><span class="c" style="--i:15">r</span><span class="c" style="--i:16">u</span><span class="c" style="--i:17">z</span><span class="c" style="--i:18">a</span><span class="c" style="--i:19">r</span></span> <span class="pal"><span class="c" style="--i:21">u</span><span class="c" style="--i:22">n</span></span> <span class="pal"><span class="c" style="--i:24">o</span><span class="c" style="--i:25">c</span><span class="c" style="--i:26">é</span><span class="c" style="--i:27">a</span><span class="c" style="--i:28">n</span><span class="c" style="--i:29">o</span></span> <span class="pal"><span class="c" style="--i:31">p</span><span class="c" style="--i:32">a</span><span class="c" style="--i:33">r</span><span class="c" style="--i:34">a</span></span> <span class="pal"><span class="c" style="--i:36">q</span><span class="c" style="--i:37">u</span><span class="c" style="--i:38">e</span></span> <span class="pal"><span class="c" style="--i:40">e</span><span class="c" style="--i:41">l</span></span> <span class="pal"><span class="c" style="--i:43">v</span><span class="c" style="--i:44">i</span><span class="c" style="--i:45">a</span><span class="c" style="--i:46">j</span><span class="c" style="--i:47">e</span></span> <span class="pal"><span class="c" style="--i:49">t</span><span class="c" style="--i:50">e</span></span> <span class="pal"><span class="c" style="--i:52">c</span><span class="c" style="--i:53">a</span><span class="c" style="--i:54">m</span><span class="c" style="--i:55">b</span><span class="c" style="--i:56">i</span><span class="c" style="--i:57">e</span><span class="c" style="--i:58">.</span></span> <span class="pal"><span class="c" style="--i:60">A</span></span> <span class="pal"><span class="c" style="--i:62">v</span><span class="c" style="--i:63">e</span><span class="c" style="--i:64">c</span><span class="c" style="--i:65">e</span><span class="c" style="--i:66">s</span></span> <span class="pal"><span class="c" style="--i:68">b</span><span class="c" style="--i:69">a</span><span class="c" style="--i:70">s</span><span class="c" style="--i:71">t</span><span class="c" style="--i:72">a</span></span> <span class="pal"><span class="c" style="--i:74">c</span><span class="c" style="--i:75">o</span><span class="c" style="--i:76">n</span></span> <span class="pal em"><span class="c" style="--i:78">s</span><span class="c" style="--i:79">a</span><span class="c" style="--i:80">l</span><span class="c" style="--i:81">i</span><span class="c" style="--i:82">r</span></span> <span class="pal em"><span class="c" style="--i:84">d</span><span class="c" style="--i:85">e</span></span> <span class="pal em"><span class="c" style="--i:87">C</span><span class="c" style="--i:88">a</span><span class="c" style="--i:89">l</span><span class="c" style="--i:90">i</span><span class="c" style="--i:91">.</span></span><span class="cursor"></span></span></p>
     </div>
     <div class="wrap frase-pie">
       <span>Seis destinos nacionales</span>
@@ -528,6 +552,11 @@ modal.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener(
 modal.addEventListener('click',function(e){if(e.target===modal.firstElementChild)close();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
 }
+
+var frs=document.querySelectorAll('.frase[data-f]');
+function run(fr){var t=fr.querySelector('.frase-txt');if(t)t.style.animationPlayState='running';}
+if(reduce||!('IntersectionObserver' in window)){frs.forEach(run);}
+else{var fo=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);fo.unobserve(x.target);}})},{threshold:.45});frs.forEach(function(f){fo.observe(f)});}
 })();
 </script>
 </body>
