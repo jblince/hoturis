@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoturis Viajes | Agencia de viajes en Cali</title>
+<meta name="description" content="Agencia de viajes familiar en Cali desde 1989. Planes nacionales e internacionales con salida desde Cali.">
+<link rel="icon" href="img/53681a562ea3554cd8c712ca74c1c52f.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&amp;display=swap">
+<style>
+:root{--navy:#050F1F;--navy2:#0E1F38;--deep:#020812;--line:rgba(255,255,255,.13);--text:#F3F6FA;--muted:#9CAEC6;--red:#E40134;--light:#F3F5F8}
+body{margin:0;background:var(--navy);color:var(--text);font-family:'Inter Tight',system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1360px;margin:0 auto;padding-left:clamp(16px,4vw,48px);padding-right:clamp(16px,4vw,48px)}
+.tight{letter-spacing:-.035em;font-weight:600;line-height:1.02}
+.muted{color:var(--muted)}
+.slide{transition:opacity 1.8s ease}
+.bar{display:block;height:2px;width:40px;background:#FFFFFF;transition:opacity .6s}
+.pill{display:inline-flex;align-items:center;gap:10px;min-height:44px;box-sizing:border-box;padding:6px 8px 6px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px}
+.pill .ico{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center}
+.pill-white{background:#FFFFFF;color:var(--navy)}.pill-white .ico{background:var(--navy);color:#FFFFFF}
+.pill-dark{background:var(--navy2);color:#FFFFFF}.pill-dark .ico{background:rgba(255,255,255,.12)}
+.pill{transition:background-color .25s ease,color .25s ease}
+.pill .ico{transition:background-color .25s ease,color .25s ease}
+.pill-dark:hover,.pill-white:hover,.claro .pill-dark:hover{background:var(--red);color:#FFFFFF}
+.pill-dark:hover .ico,.pill-white:hover .ico{background:rgba(255,255,255,.2);color:#FFFFFF}
+.pill-red{background:var(--red);color:#FFFFFF}.pill-red .ico{background:rgba(255,255,255,.18)}
+.pill-red:hover{background:#C70029}
+.navlink{text-decoration:none;font-size:14px;font-weight:500;color:#FFFFFF}
+.navlink:hover{text-decoration:underline;text-underline-offset:4px}
+.intl img,.nac img,.collage img,.arts img{border-radius:10px}
+/* secciones claras */
+.claro{--text:#0A1E38;--muted:#5A6577;--line:rgba(10,30,56,.14);--navy2:#0A1E38;background:#FFFFFF;color:var(--text)}
+.cielo-a,.cielo-b{background:#F5F9FD}
+.claro a:focus-visible,.claro button:focus-visible{outline-color:#0A1E38}
+.claro .tag{border-color:rgba(10,30,56,.25)}
+.claro .ph{background:#EEF3F8;border-color:rgba(10,30,56,.25)}
+/* internacionales */
+.intl2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(40px,6vw,96px);align-items:start}
+.intl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dest{position:relative;display:block;border-radius:10px;overflow:hidden;text-decoration:none;color:#FFFFFF;aspect-ratio:1/1;background:#0B1A31}
+.dest img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.dest:hover img{transform:scale(1.04)}
+.dest .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,21,42,0) 50%,rgba(6,21,42,.78) 100%)}
+.dest .info{position:absolute;left:18px;right:18px;bottom:16px}
+.dest .nombre{display:block;font-size:18px;font-weight:600;letter-spacing:-.01em}
+.dest .meta{display:block;font-size:13px;opacity:.92;margin-top:2px}
+.dest.vacio{display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:16px;background:#EEF3F8;border:1px dashed rgba(10,30,56,.25);color:var(--muted);font-size:13px}
+.intl-txt{position:sticky;top:48px}
+#t-intl,#t-nac{text-shadow:0 2px 6px rgba(10,30,56,.18),0 8px 24px rgba(200,0,46,.12)}
+/* nacionales */
+.nac{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.nac>article{display:grid;grid-template-columns:1fr 210px;gap:24px;padding:28px 28px 28px 0;border-bottom:1px solid var(--line)}
+.nac>article:nth-child(2n){padding:28px 0 28px 28px;border-left:1px solid var(--line)}
+.dato{display:flex;justify-content:flex-start;align-items:flex-start;gap:10px;font-size:13px;padding:5px 0}
+.dato svg{flex:none;color:var(--muted);order:-1;margin-top:2px}
+/* experiencias */
+.exp{position:relative;height:112vh;min-height:780px;max-height:1080px;overflow:hidden;background:#000}
+.cajones{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;border-top:1px solid rgba(255,255,255,.22)}
+.cajon{background:none;border:0;border-left:1px solid rgba(255,255,255,.22);color:#FFFFFF;text-align:left;font:inherit;padding:30px 26px 36px;cursor:pointer;position:relative;transition:opacity .4s;display:flex;flex-direction:column;min-height:clamp(200px,26vh,280px)}
+.cajon .num{display:block;font-size:clamp(36px,3.4vw,52px);font-weight:500;letter-spacing:-.04em;line-height:1}
+.cajon .lab{display:block;font-size:12px;opacity:.65;margin-top:8px}
+.cajon .nom{display:block;margin-top:auto;padding-top:40px;font-size:16px;font-weight:500;line-height:1.3;letter-spacing:-.01em}
+.cajon:hover{opacity:1!important}
+.cajon .marca{position:absolute;left:-1px;right:0;top:-1px;height:2px;background:#FFFFFF;transition:opacity .4s}
+/* historia */
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+.hito{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(64px,9vw,140px);align-items:center;padding:clamp(48px,6vw,88px) 0;position:relative;transition:opacity 1s ease,transform 1s ease}
+.hito::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--text)}
+.hito .foto{margin:0}
+.hito.izq .foto{grid-column:1;grid-row:1}.hito.izq .txt{grid-column:2;grid-row:1}
+.hito.der .foto{grid-column:2;grid-row:1}.hito.der .txt{grid-column:1;grid-row:1;text-align:right}
+.hito.der .desc{margin-left:auto}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:20px;border-radius:10px;border:1px dashed rgba(255,255,255,.28);background:#0B1A31;color:var(--muted);font-size:13px}
+.hito.izq .ph{aspect-ratio:4/5;width:82%}
+.hito.der .ph{aspect-ratio:4/3;width:78%;margin-left:auto}
+.hito .anio{font-size:clamp(34px,4vw,56px)}
+.hito .tit{font-weight:600;font-size:17px;margin-top:10px}
+.hito .desc{font-size:15px;font-weight:300;margin-top:6px;max-width:30ch}
+.collage{display:grid;grid-template-columns:1fr 1px 1fr;gap:0 48px;align-items:start}
+.linea{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.linea>div{padding:24px 20px 0 0;position:relative}
+.linea>div::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--text)}
+/* artículos */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.tag{display:inline-block;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:3px 12px;font-size:12px;color:var(--muted)}
+.arts a{text-decoration:none}
+.arts a:hover h3{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.foot a{text-decoration:none;color:#3A4A60}.foot a:hover{color:var(--red)}
+@media (max-width:980px){
+ .intl2{grid-template-columns:1fr}.intl-txt{position:static;order:-1}
+ .nac{grid-template-columns:1fr}.nac>article,.nac>article:nth-child(2n){padding:22px 0;border-left:0}
+ .cajones{grid-template-columns:1fr 1fr 1fr}.cajones .intro{display:none}
+ .tl::before{left:4px}
+ .hito{grid-template-columns:1fr;row-gap:20px;padding:28px 0 28px 32px}
+ .hito::after{left:4px;top:36px}
+ .hito .foto,.hito .txt{grid-column:1!important;grid-row:auto!important;text-align:left!important}
+ .hito .txt{grid-row:1!important}.hito .foto{grid-row:2!important}
+ .hito .ph{width:100%!important;aspect-ratio:4/3!important;margin-left:0!important}
+ .hito .desc{margin-left:0!important}
+ .arts{grid-template-columns:1fr;gap:32px}
+}
+@media (max-width:640px){
+ .solo-escritorio{display:none!important}
+ .nac>article{grid-template-columns:1fr 112px;gap:16px}
+ .cab-intl{grid-template-columns:1fr!important;gap:12px!important}
+ .intl-grid{gap:10px}.dest .nombre{font-size:15px}.dest .info{left:12px;right:12px;bottom:12px}
+ .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
+ .navlink{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img{transition:none}}
+</style>
+<style>.hito.pre{opacity:0;transform:translateY(48px)}</style>
+<style>img{max-width:100%}</style>
+</head>
+<body>
+<div style="width:100%;overflow-x:hidden">
+
+<!-- 1. HERO -->
+<section aria-label="Portada" style="position:relative;height:100vh;min-height:620px;max-height:980px;overflow:hidden;background:#000">
+  <img class="slide" src="img/a3f7123642954e91a8e69b16e7d25fc0.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1" data-slide="0">
+  <img class="slide" src="img/506ba8beddf4e15cd7de07ebf1088ca6.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="1">
+  <img class="slide" src="img/5f9d56b27fdb03cf438a463bb3978761.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="2">
+  <img class="slide" src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="3">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,21,42,.45) 0%,rgba(6,21,42,0) 22%,rgba(6,21,42,0) 45%,rgba(6,21,42,.35) 70%,rgba(6,21,42,.7) 100%)"></div>
+
+  <header style="position:absolute;top:0;left:0;right:0;z-index:2">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px">
+      <a href="#" style="display:block"><img src="img/53681a562ea3554cd8c712ca74c1c52f.png" alt="Hoturis Agencia de Viajes, inicio" style="display:block;width:clamp(110px,11vw,160px);height:auto"></a>
+      <nav aria-label="Principal" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,32px)">
+        <a class="navlink" href="#">Planes</a>
+        <a class="navlink" href="#">Artículos</a>
+        <a class="navlink" href="#">Nosotros</a>
+        <a class="navlink solo-escritorio" href="#" style="border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:9px 18px">Escríbenos por WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;padding:0 16px;z-index:1">
+    <h1 class="tight" style="font-size:clamp(72px,11vw,168px);letter-spacing:-.05em;line-height:.9;font-weight:600">Viaja</h1>
+    <p style="font-size:clamp(17px,1.6vw,21px);font-weight:500;margin-top:18px;letter-spacing:-.01em">Nosotros te lo hacemos fácil.</p>
+    <a class="pill pill-white" href="#planes" style="margin-top:26px">Ver planes <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+  </div>
+
+  <div class="wrap" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#FFFFFF">
+    <p style="font-size:13px;line-height:1.4"><span style="font-weight:600"><span id="slideName">San Andrés</span></span><br><span style="opacity:.75"><span id="slideCoords">12.58° N, 81.70° W</span></span></p>
+    <div aria-hidden="true" style="display:flex;gap:8px;padding-bottom:6px">
+      <span class="bar" style="opacity:1" data-bar="0"></span><span class="bar" style="opacity:.35" data-bar="1"></span><span class="bar" style="opacity:.35" data-bar="2"></span><span class="bar" style="opacity:.35" data-bar="3"></span>
+    </div>
+    <button id="pausa" type="button" aria-label="Pausar el carrusel" style="background:none;border:1px solid rgba(255,255,255,.5);color:#FFFFFF;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+      <svg id="icoPlay" hidden aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"></path></svg>
+      <svg id="icoPause" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"></rect><rect x="14" y="4.5" width="4" height="15" rx="1"></rect></svg>
+    </button>
+  </div>
+</section>
+
+<!-- 2. INTERNACIONALES -->
+<section id="planes" class="claro cielo-a" aria-labelledby="t-intl" style="padding:clamp(64px,8vw,112px) 0 clamp(40px,5vw,64px)">
+  <div class="wrap">
+    <div class="intl2">
+      <div class="intl-grid">
+        <a class="dest" href="#"><img src="img/42a9bb0a491c906ef0b738bf59553a32.jpg" alt="Playa de arena blanca con palmeras en Punta Cana"><span class="velo" aria-hidden="true"></span><span class="info"><span class="nombre">Punta Cana</span><span class="meta">6 días · desde $5.490.000</span></span></a>
+        <a class="dest" href="#"><img src="img/f59f44c0889a791698b55ad240cf85ad.jpg" alt="Vista de la Gran Vía y el edificio Metrópolis en Madrid"><span class="velo" aria-hidden="true"></span><span class="info"><span class="nombre">Madrid</span><span class="meta">8 días · desde $7.890.000</span></span></a>
+        <a class="dest" href="#"><img src="img/09efef9d3d8e8e31f238354d6072e982.jpg" alt="El Coliseo de Roma al atardecer"><span class="velo" aria-hidden="true"></span><span class="info"><span class="nombre">Roma</span><span class="meta">9 días · desde $8.950.000</span></span></a>
+        <div class="dest vacio" role="img" aria-label="Espacio para la foto de Barcelona"><span><span style="display:block;font-size:18px;font-weight:600;color:var(--text)">Barcelona</span>[FOTO, DÍAS Y PRECIO]</span></div>
+      </div>
+      <div class="intl-txt">
+        <h2 id="t-intl" class="tight" style="font-size:clamp(34px,4vw,56px);color:#C8002E">Internacional</h2>
+        <p style="font-size:clamp(15px,1.2vw,17px);line-height:1.5;letter-spacing:-.01em;font-weight:300;max-width:40ch;margin-top:12px">El agua tibia del Caribe, una plaza en Roma al caer la tarde. Hay lugares que se quedan contigo para siempre.</p>
+        <p class="muted" style="font-size:14px;max-width:40ch;margin-top:28px">Salidas desde Cali. Precios por persona en acomodación doble, en pesos colombianos.</p>
+        <a class="pill pill-dark" href="#" style="margin-top:24px">Ver planes internacionales <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. NACIONALES -->
+<section class="claro cielo-b" aria-labelledby="t-nac" style="padding:clamp(48px,6vw,88px) 0 clamp(64px,8vw,112px)">
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 48px;margin-bottom:clamp(28px,3vw,44px)">
+      <div>
+        <h2 id="t-nac" class="tight" style="font-size:clamp(34px,4vw,56px);color:#C8002E">Nacional</h2>
+        <p style="font-size:clamp(15px,1.2vw,17px);line-height:1.5;letter-spacing:-.01em;font-weight:300;max-width:44ch;margin-top:12px">Un mar de siete colores, café en la montaña y atardeceres en Cartagena. Colombia está más cerca de lo que crees.</p>
+      </div>
+      <p class="muted" style="font-size:14px;max-width:42ch">Precios por persona en acomodación doble, en pesos colombianos. Precio sujeto a cambios.</p>
+    </div>
+    <div class="nac">
+      <article>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <h3 class="tight" style="font-size:clamp(20px,1.8vw,24px);line-height:1.15">Cartagena</h3>
+          <p style="font-size:13px;margin-top:4px"><span class="muted">desde</span> <span style="font-weight:600;font-size:15px">$1.890.000</span></p>
+          <div style="margin-top:auto;padding-top:22px">
+            <div class="dato"><span>Sale de Cali</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div>
+            <div class="dato"><span>4 días, 3 noches</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></div>
+            <div class="dato"><span>Vuelo, hotel y tour a Islas del Rosario</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M10.5 13.5L3 11l1.5-1.5 7.5 1L16 6.5c1-1 2.6-1.2 3.3-.5s.5 2.3-.5 3.3l-4 4 1 7.5L14.3 22l-2.5-7.5"></path></svg></div>
+            <a class="pill pill-dark" href="#" style="margin-top:16px">Ver plan <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+          </div>
+        </div>
+        <img src="img/1599a51e5baa053e37d8612f91670655.jpg" alt="Calle colorida del centro histórico de Cartagena" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
+      </article>
+      <article>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <h3 class="tight" style="font-size:clamp(20px,1.8vw,24px);line-height:1.15">San Andrés</h3>
+          <p style="font-size:13px;margin-top:4px"><span class="muted">desde</span> <span style="font-weight:600;font-size:15px">$2.450.000</span></p>
+          <div style="margin-top:auto;padding-top:22px">
+            <div class="dato"><span>Sale de Cali</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div>
+            <div class="dato"><span>5 días, 4 noches</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></div>
+            <div class="dato"><span>Vuelo y hotel todo incluido</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M10.5 13.5L3 11l1.5-1.5 7.5 1L16 6.5c1-1 2.6-1.2 3.3-.5s.5 2.3-.5 3.3l-4 4 1 7.5L14.3 22l-2.5-7.5"></path></svg></div>
+            <a class="pill pill-dark" href="#" style="margin-top:16px">Ver plan <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+          </div>
+        </div>
+        <img src="img/7fa20dd06a60384ded9a8317a0e7b4d2.jpg" alt="Isla con palmeras y lanchas sobre el mar turquesa de San Andrés" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
+      </article>
+      <article>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <h3 class="tight" style="font-size:clamp(20px,1.8vw,24px);line-height:1.15">Santa Marta y Tayrona</h3>
+          <p style="font-size:13px;margin-top:4px"><span class="muted">desde</span> <span style="font-weight:600;font-size:15px">$1.690.000</span></p>
+          <div style="margin-top:auto;padding-top:22px">
+            <div class="dato"><span>Sale de Cali</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div>
+            <div class="dato"><span>4 días, 3 noches</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></div>
+            <div class="dato"><span>Vuelo, hotel y entrada al parque</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M10.5 13.5L3 11l1.5-1.5 7.5 1L16 6.5c1-1 2.6-1.2 3.3-.5s.5 2.3-.5 3.3l-4 4 1 7.5L14.3 22l-2.5-7.5"></path></svg></div>
+            <a class="pill pill-dark" href="#" style="margin-top:16px">Ver plan <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+          </div>
+        </div>
+        <img src="img/5f9d56b27fdb03cf438a463bb3978761.jpg" alt="Playa con palmeras en el Parque Tayrona" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
+      </article>
+      <article>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <h3 class="tight" style="font-size:clamp(20px,1.8vw,24px);line-height:1.15">La Guajira</h3>
+          <p style="font-size:13px;margin-top:4px"><span class="muted">desde</span> <span style="font-weight:600;font-size:15px">$2.150.000</span></p>
+          <div style="margin-top:auto;padding-top:22px">
+            <div class="dato"><span>Sale de Cali</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div>
+            <div class="dato"><span>5 días, 4 noches</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></div>
+            <div class="dato"><span>Vuelo, hotel y tour a Cabo de la Vela</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M10.5 13.5L3 11l1.5-1.5 7.5 1L16 6.5c1-1 2.6-1.2 3.3-.5s.5 2.3-.5 3.3l-4 4 1 7.5L14.3 22l-2.5-7.5"></path></svg></div>
+            <a class="pill pill-dark" href="#" style="margin-top:16px">Ver plan <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+          </div>
+        </div>
+        <img src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="Chinchorros de colores frente al mar en La Guajira" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
+      </article>
+      <article>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <h3 class="tight" style="font-size:clamp(20px,1.8vw,24px);line-height:1.15">Eje Cafetero</h3>
+          <p style="font-size:13px;margin-top:4px"><span class="muted">desde</span> <span style="font-weight:600;font-size:15px">$1.390.000</span></p>
+          <div style="margin-top:auto;padding-top:22px">
+            <div class="dato"><span>Sale de Cali, en bus</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div>
+            <div class="dato"><span>4 días, 3 noches</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></div>
+            <div class="dato"><span>Hotel, Valle de Cocora y finca cafetera</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M10.5 13.5L3 11l1.5-1.5 7.5 1L16 6.5c1-1 2.6-1.2 3.3-.5s.5 2.3-.5 3.3l-4 4 1 7.5L14.3 22l-2.5-7.5"></path></svg></div>
+            <a class="pill pill-dark" href="#" style="margin-top:16px">Ver plan <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+          </div>
+        </div>
+        <img src="img/7ecb7ed866b49fb613259952b39d0193.jpg" alt="Palmas de cera en el Valle de Cocora" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
+      </article>
+      <article>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <h3 class="tight" style="font-size:clamp(20px,1.8vw,24px);line-height:1.15">Amazonas</h3>
+          <p style="font-size:13px;margin-top:4px"><span class="muted">desde</span> <span style="font-weight:600;font-size:15px">$2.790.000</span></p>
+          <div style="margin-top:auto;padding-top:22px">
+            <div class="dato"><span>Sale de Cali</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div>
+            <div class="dato"><span>5 días, 4 noches</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></div>
+            <div class="dato"><span>Vuelo, hotel y paseos en lancha</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M10.5 13.5L3 11l1.5-1.5 7.5 1L16 6.5c1-1 2.6-1.2 3.3-.5s.5 2.3-.5 3.3l-4 4 1 7.5L14.3 22l-2.5-7.5"></path></svg></div>
+            <a class="pill pill-dark" href="#" style="margin-top:16px">Ver plan <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+          </div>
+        </div>
+        <img src="img/04d1c1307fbb720477d2610fcba26b18.jpg" alt="Canoa de madera sobre el río Amazonas" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. EXPERIENCIAS -->
+<section class="exp" aria-labelledby="t-exp">
+  <img class="slide" src="img/f236d8575f30d681f31e459f863c3bee.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1" data-xslide="0">
+  <img class="slide" src="img/d680e6fdcbd8d9a1d3677bec60c64dd0.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-xslide="1">
+  <img class="slide" src="img/e6cb604fdd6a57cd3234a61c948a2cb2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-xslide="2">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,21,42,.6) 0%,rgba(6,21,42,.1) 38%,rgba(6,21,42,.15) 60%,rgba(6,21,42,.85) 100%)"></div>
+
+  <div class="wrap" style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between;color:#FFFFFF;box-sizing:border-box;padding-top:clamp(48px,6vw,80px)">
+    <div style="max-width:560px">
+      <h2 id="t-exp" style="font-size:14px;font-weight:500;opacity:.8;margin-bottom:14px">Experiencias</h2>
+      <p class="tight" aria-live="polite" style="font-size:clamp(34px,4vw,56px)"><span id="expTitle">Sunset Fest</span></p>
+      <p style="font-size:clamp(15px,1.2vw,17px);line-height:1.5;font-weight:300;letter-spacing:-.01em;margin-top:12px;max-width:44ch"><span id="expDesc">Música frente al mar hasta que se esconde el sol. Viajas desde Cali con transporte, hotel y entrada al festival.</span></p>
+      <a class="pill pill-red" href="#" style="margin-top:24px"><span id="expCta">Quiero ir a Sunset Fest</span> <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+    </div>
+    <div class="cajones" role="group" aria-label="Elige una experiencia">
+      <p class="intro" style="padding:30px 40px 30px 0;font-size:17px;line-height:1.45;letter-spacing:-.01em;font-weight:500">Planes armados alrededor de algo que vale el viaje: un festival, un partido o un pueblo que hay que conocer.</p>
+      <button class="cajon" type="button" data-exp="0" aria-pressed="true" style="opacity:1"><span class="marca" style="opacity:1"></span><span class="num">01</span><span class="lab">Experiencia</span><span class="nom">Sunset Fest</span></button>
+      <button class="cajon" type="button" data-exp="1" aria-pressed="false" style="opacity:.6"><span class="marca" style="opacity:0"></span><span class="num">02</span><span class="lab">Experiencia</span><span class="nom">Eliminatorias</span></button>
+      <button class="cajon" type="button" data-exp="2" aria-pressed="false" style="opacity:.6"><span class="marca" style="opacity:0"></span><span class="num">03</span><span class="lab">Experiencia</span><span class="nom">Terrestres</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 5. POR QUÉ HOTURIS -->
+<section class="claro" aria-labelledby="t-hist" style="padding:clamp(72px,9vw,128px) 0">
+  <div class="wrap">
+    <h2 id="t-hist" class="muted" style="text-align:center;font-size:14px;font-weight:500;margin-bottom:22px">Por qué Hoturis</h2>
+    <p style="text-align:center;font-size:clamp(21px,2.2vw,30px);line-height:1.35;letter-spacing:-.02em;max-width:30ch;margin:0 auto;font-weight:500">Somos una empresa familiar caleña. Llevamos 37 años organizando los viajes de las familias del Valle, y nos sigues encontrando en la misma esquina.</p>
+
+    <div class="tl" style="margin-top:clamp(56px,7vw,104px)">
+      <article class="hito izq" data-i="0">
+        <figure class="foto"><div class="ph" role="img" aria-label="Espacio para foto de la primera oficina">Foto de la primera oficina o de los fundadores</div></figure>
+        <div class="txt"><p class="anio tight">1989</p><p class="tit">Nace Hoturis</p><p class="desc muted">Una familia de Cali abre su primera oficina en la Avenida 6 Norte.</p></div>
+      </article>
+      <article class="hito der" data-i="1">
+        <figure class="foto"><div class="ph" role="img" aria-label="Espacio para foto de la sede del centro">Foto de la sede de la Carrera 4</div></figure>
+        <div class="txt"><p class="anio tight">2003</p><p class="tit">Sede en el centro</p><p class="desc muted">Segundo punto de venta, en la Carrera 4 con Calle 8.</p></div>
+      </article>
+      <article class="hito izq" data-i="2">
+        <figure class="foto"><div class="ph" role="img" aria-label="Espacio para foto del equipo mayorista">Foto del equipo de Hoturis Mayorista</div></figure>
+        <div class="txt"><p class="anio tight">2010</p><p class="tit">Hoturis Mayorista</p><p class="desc muted">Empezamos a vender planes a otras agencias del país.</p></div>
+      </article>
+      <article class="hito der" data-i="3">
+        <figure class="foto"><div class="ph" role="img" aria-label="Espacio para foto de la certificación IATA">Foto del certificado IATA o del equipo</div></figure>
+        <div class="txt"><p class="anio tight">2016</p><p class="tit">IATA y ANATO</p><p class="desc muted">Certificados para emitir tiquetes aéreos. Registro Nacional de Turismo 6009.</p></div>
+      </article>
+      <article class="hito izq" data-i="4">
+        <figure class="foto"><div class="ph" role="img" aria-label="Espacio para foto de la oficina renovada">Foto de la oficina renovada</div></figure>
+        <div class="txt"><p class="anio tight">2024</p><p class="tit">Nueva oficina</p><p class="desc muted">Sede principal renovada y nueva imagen de marca.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ARTÍCULOS -->
+<section class="claro" aria-labelledby="t-art" style="background:#F2F7FC;padding:clamp(56px,7vw,96px) 0">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(28px,3vw,44px)">
+      <h2 id="t-art" style="font-size:14px;font-weight:500" class="muted">Artículos</h2>
+      <a href="#" style="font-size:14px;font-weight:500;text-underline-offset:4px">Ver todos los artículos</a>
+    </div>
+    <div class="arts">
+      <a href="#"><img src="img/7fa20dd06a60384ded9a8317a0e7b4d2.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"><span class="tag" style="margin-top:18px">Equipaje</span><h3 style="font-size:clamp(19px,1.6vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.25;margin-top:12px">Qué empacar para San Andrés si vas con niños</h3></a>
+      <a href="#"><img src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"><span class="tag" style="margin-top:18px">Cuándo ir</span><h3 style="font-size:clamp(19px,1.6vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.25;margin-top:12px">La mejor época para conocer La Guajira</h3></a>
+      <a href="#"><img src="img/09efef9d3d8e8e31f238354d6072e982.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"><span class="tag" style="margin-top:18px">Documentos</span><h3 style="font-size:clamp(19px,1.6vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.25;margin-top:12px">Viajar a Europa desde Colombia: qué te piden en migración</h3></a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CIERRE WHATSAPP -->
+<section aria-labelledby="t-cierre" style="padding:clamp(72px,9vw,128px) 0;text-align:center">
+  <div class="wrap">
+    <h2 id="t-cierre" class="tight" style="font-size:clamp(40px,5vw,72px)">¿Para dónde nos vamos?</h2>
+    <p class="muted" style="font-size:16px;margin-top:14px">Cuéntanos fechas y con quién viajas. Te respondemos por WhatsApp.</p>
+    <a class="pill pill-red" href="#" style="margin-top:28px">Escribir por WhatsApp <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"></path></svg></span></a>
+    <p class="muted" style="font-size:14px;margin-top:16px">o llámanos al (602) 667 83 83</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" style="background:#FFFFFF;color:#0A1E38;padding:56px 0 32px;font-size:14px">
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:36px 48px">
+      <div style="max-width:280px">
+        <img src="img/cad50d5b6eb818d75e632c219d694ee1.webp" alt="Hoturis Agencia de Viajes" style="display:block;width:130px;height:auto">
+        <p style="margin-top:16px;color:#3A4A60">Av. 6a N # 25-44, Cali<br>Cra. 4 # 8-18, Local 104, Cali<br>(602) 667 83 83</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px 64px">
+        <div><p style="font-weight:600;margin-bottom:10px">Planes</p><p style="line-height:2"><a href="#">Nacionales</a><br><a href="#">Internacionales</a><br><a href="#">Experiencias</a></p></div>
+        <div><p style="font-weight:600;margin-bottom:10px">Hoturis</p><p style="line-height:2"><a href="#">Nosotros</a><br><a href="#">Visas</a><br><a href="#">Hoturis Mayorista</a></p></div>
+        <div><p style="font-weight:600;margin-bottom:10px">Legal</p><p style="line-height:2"><a href="#">Preguntas frecuentes</a><br><a href="#">Términos de uso</a><br><a href="#">PQRS</a><br><a href="#">Protección de datos</a></p></div>
+        <div><p style="font-weight:600;margin-bottom:10px">Síguenos</p><p style="line-height:2"><a href="#">Instagram</a><br><a href="#">Facebook</a></p></div>
+      </div>
+    </div>
+    <p style="margin-top:44px;padding-top:20px;border-top:1px solid #D9DFE7;font-size:12px;color:#5B6472">RNT 6009. Miembros de IATA y ANATO. Fotos: Unsplash (Darren Lawrence, Jaime Bishara, Levi Ari Pronk, Julian Florez, Victor Rosario, Arthur Hutterer, Marco Grosso, Ricky Beron, Lina Micán, Shawn Appel, Nareeta Martin, chaim weingarten, Krzysztof Dubiel, Ricardo Cifuentes T.).</p>
+  </div>
+</footer>
+
+<a href="#" aria-label="Escribir a Hoturis por WhatsApp" style="position:fixed;left:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);z-index:5">
+  <svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"></path><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.5l1-1.2 2 .9c-.2 1.2-1.2 2-2.4 1.8A6.5 6.5 0 0 1 8.2 9.6C8 8.4 8.8 7.4 10 7.2l.9 2-1.2 1"></path></svg>
+</a>
+
+</div>
+<script>
+(function(){
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var slides=[['San Andrés','12.58° N, 81.70° W'],['Cartagena','10.42° N, 75.55° W'],['Parque Tayrona','11.31° N, 74.03° W'],['Cabo de la Vela, La Guajira','12.20° N, 72.15° W']];
+var i=0,paused=reduce;
+var sImgs=document.querySelectorAll('[data-slide]'),bars=document.querySelectorAll('[data-bar]');
+var btn=document.getElementById('pausa'),play=document.getElementById('icoPlay'),pause=document.getElementById('icoPause');
+function show(n){i=n;sImgs.forEach(function(e,k){e.style.opacity=k===n?1:0});bars.forEach(function(e,k){e.style.opacity=k===n?1:.35});
+document.getElementById('slideName').textContent=slides[n][0];document.getElementById('slideCoords').textContent=slides[n][1];}
+function setPaused(p){paused=p;play.hidden=!p;pause.hidden=p;btn.setAttribute('aria-label',p?'Reanudar el carrusel':'Pausar el carrusel');}
+setPaused(paused);
+btn.addEventListener('click',function(){setPaused(!paused)});
+setInterval(function(){if(!paused)show((i+1)%slides.length)},6000);
+var exps=[['Sunset Fest','Música frente al mar hasta que se esconde el sol. Viajas desde Cali con transporte, hotel y entrada al festival.','Quiero ir a Sunset Fest'],
+['Eliminatorias','Vamos a alentar a la Selección. Boleta, vuelo y hotel en un solo plan, con el grupo de Hoturis.','Quiero ir al partido'],
+['Terrestres','Escapadas en bus desde Cali a pueblos con encanto como Guatapé, Salento o Filandia. Fines de semana y puentes festivos.','Ver salidas en bus']];
+var xImgs=document.querySelectorAll('[data-xslide]'),cajones=document.querySelectorAll('[data-exp]');
+cajones.forEach(function(c){c.addEventListener('click',function(){var e=+c.getAttribute('data-exp');
+xImgs.forEach(function(el,k){el.style.opacity=k===e?1:0});
+cajones.forEach(function(b,k){b.style.opacity=k===e?1:.6;b.setAttribute('aria-pressed',k===e?'true':'false');b.querySelector('.marca').style.opacity=k===e?1:0});
+document.getElementById('expTitle').textContent=exps[e][0];document.getElementById('expDesc').textContent=exps[e][1];document.getElementById('expCta').textContent=exps[e][2];});});
+if(!reduce&&'IntersectionObserver' in window){
+var vh=window.innerHeight;
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.remove('pre');io.unobserve(x.target);}})},{threshold:.2});
+document.querySelectorAll('.hito').forEach(function(h){if(h.getBoundingClientRect().top>vh){h.classList.add('pre');io.observe(h);}});
+}
+})();
+</script>
+</body>
+</html>
