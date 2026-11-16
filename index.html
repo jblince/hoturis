@@ -49,21 +49,30 @@ h1,h2,h3,p{margin:0}
 .quiz-otra:hover{border-color:#0A1E38}
 /* portada que se expande */
 .hero-x{position:relative;height:100vh;min-height:620px;view-timeline-name:--hero;view-timeline-axis:block}
-.hero-pin{position:relative;height:100%;overflow:hidden;background:#F5F9FD;--iy:23%;--ix:36%}
+.hero-pin{position:relative;height:100%;overflow:hidden;background:#F5F9FD;--iy:19%;--ix:38.5%}
 .hero-media{position:absolute;inset:0;background:#000}
+.hero-grande{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;pointer-events:none;padding:0 16px}
+.hg-txt{margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;text-transform:uppercase;font-size:clamp(58px,9.4vw,160px);line-height:.9;letter-spacing:-.005em}
+.hg-fuera .hg-txt{color:#0A1E38}
+.hg-dentro .hg-txt{color:#FFFFFF}
+.hero-final{position:absolute;left:0;right:0;bottom:clamp(100px,14vh,150px);z-index:1;color:#FFFFFF}
+.cap-slide{margin-left:68px}
+.hf-ceja{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.hf-titulo{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,4.8vw,76px);line-height:1;letter-spacing:-.01em;max-width:15ch;margin-top:14px;text-wrap:balance}
 .logo-c{opacity:0}
 .hero-pista{display:none}
 @supports (animation-timeline: view()){
- .hero-x{height:260vh;max-height:none}
+ .hero-x{height:270vh}
  .hero-pin{position:sticky;top:0;height:100vh;min-height:620px}
- .hero-media{animation:abre linear both;animation-timeline:--hero;animation-range:contain 0% contain 60%}
- .hero-h1,.hero-x .navlink{animation:tinta linear both;animation-timeline:--hero;animation-range:contain 18% contain 50%}
- .logo-c{animation:sale linear both;animation-timeline:--hero;animation-range:contain 18% contain 50%}
- .logo-b{animation:entra linear both;animation-timeline:--hero;animation-range:contain 18% contain 50%}
- .hero-fin{animation:entra linear both;animation-timeline:--hero;animation-range:contain 58% contain 74%}
+ .hero-media{animation:abre linear both;animation-timeline:--hero;animation-range:contain 0% contain 55%}
+ .hero-grande{display:flex;animation:sale linear both;animation-timeline:--hero;animation-range:contain 44% contain 56%}
+ .hero-x .navlink{animation:tinta linear both;animation-timeline:--hero;animation-range:contain 18% contain 48%}
+ .logo-c{animation:sale linear both;animation-timeline:--hero;animation-range:contain 18% contain 48%}
+ .logo-b{animation:entra linear both;animation-timeline:--hero;animation-range:contain 18% contain 48%}
+ .hero-fin{animation:entra linear both;animation-timeline:--hero;animation-range:contain 58% contain 76%}
  .hero-pista{display:flex;position:absolute;left:50%;bottom:28px;width:52px;height:52px;margin-left:-26px;border:1px solid rgba(10,30,56,.25);border-radius:50%;align-items:center;justify-content:center;color:#0A1E38;z-index:2;animation:sale linear both;animation-timeline:--hero;animation-range:contain 0% contain 12%}
 }
-@keyframes abre{from{clip-path:inset(var(--iy) var(--ix) round 16px)}to{clip-path:inset(0 0 0 0 round 0)}}
+@keyframes abre{from{clip-path:inset(var(--iy) var(--ix))}to{clip-path:inset(0 0 0 0)}}
 @keyframes tinta{from{color:#0A1E38}to{color:#FFFFFF}}
 @keyframes sale{from{opacity:1}to{opacity:0}}
 @keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -150,7 +159,8 @@ h1,h2,h3,p{margin:0}
 @media (max-width:640px){
  .solo-escritorio{display:none!important}
  .cap-slide{visibility:hidden}
- .hero-pin{--iy:26%;--ix:16%}
+ .hero-pin{--iy:22%;--ix:21%}
+ .hero-final{bottom:96px}
  .frase-pie{flex-direction:column;align-items:center;gap:4px;bottom:24px}.frase-pie span:first-child{margin-left:0}
  .nac>article{grid-template-columns:1fr 112px;gap:16px}
  .cab-intl{grid-template-columns:1fr!important;gap:12px!important}
@@ -158,7 +168,7 @@ h1,h2,h3,p{margin:0}
  .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
  .navlink{font-size:13px}
 }
-@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
+@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.hero-grande{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
 </style>
 <style>.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
 </head>
@@ -168,12 +178,14 @@ h1,h2,h3,p{margin:0}
 <!-- 1. HERO -->
 <section class="hero-x" aria-label="Portada">
 <div class="hero-pin">
+  <div class="hero-grande hg-fuera" aria-hidden="true"><p class="hg-txt">Hacemos<br>fácil<br>viajar</p></div>
   <div class="hero-media">
   <img class="slide" src="img/a3f7123642954e91a8e69b16e7d25fc0.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1" data-slide="0">
   <img class="slide" src="img/506ba8beddf4e15cd7de07ebf1088ca6.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="1">
   <img class="slide" src="img/5f9d56b27fdb03cf438a463bb3978761.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="2">
   <img class="slide" src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="3">
   <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,21,42,.45) 0%,rgba(6,21,42,0) 22%,rgba(6,21,42,0) 45%,rgba(6,21,42,.35) 70%,rgba(6,21,42,.7) 100%)"></div>
+    <div class="hero-grande hg-dentro" aria-hidden="true"><p class="hg-txt">Hacemos<br>fácil<br>viajar</p></div>
   </div>
 
   <header style="position:absolute;top:0;left:0;right:0;z-index:2">
@@ -188,10 +200,10 @@ h1,h2,h3,p{margin:0}
     </div>
   </header>
 
-  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;padding:0 16px;z-index:1">
-    <h1 class="tight hero-h1" style="font-size:clamp(72px,11vw,168px);letter-spacing:-.05em;line-height:.9;font-weight:600">Viaja</h1>
-    <p class="hero-fin" style="font-size:clamp(17px,1.6vw,21px);font-weight:500;margin-top:18px;letter-spacing:-.01em">Nosotros te lo hacemos fácil.</p>
-    <a class="pill pill-white hero-fin" href="#planes" style="margin-top:26px">Ver planes <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+  <div class="wrap hero-fin hero-final">
+    <p class="hf-ceja">Agencia de viajes en Cali · Desde 1989</p>
+    <h1 class="hf-titulo">Viaja a donde sueñas. Nosotros nos encargamos del resto.</h1>
+    <a class="pill pill-white" href="#planes" style="margin-top:28px">Ver planes <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
   </div>
 
   <div class="wrap hero-fin" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#FFFFFF">
