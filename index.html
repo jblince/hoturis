@@ -171,7 +171,7 @@ h1,h2,h3,p{margin:0}
  .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
  .navlink{font-size:13px}
 }
-@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.hero-grande{display:none!important}.hero-marco{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
+@media (prefers-reduced-motion:reduce){.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.hero-grande{display:none!important}.hero-marco{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
 </style>
 <style>.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
 </head>
@@ -183,10 +183,7 @@ h1,h2,h3,p{margin:0}
 <div class="hero-pin">
   <div class="hero-grande hg-fuera" aria-hidden="true"><p class="hg-txt">Hacemos<br>fácil viajar</p></div>
   <div class="hero-media">
-  <img class="slide" src="img/a3f7123642954e91a8e69b16e7d25fc0.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1" data-slide="0">
-  <img class="slide" src="img/506ba8beddf4e15cd7de07ebf1088ca6.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="1">
-  <img class="slide" src="img/5f9d56b27fdb03cf438a463bb3978761.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="2">
-  <img class="slide" src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-slide="3">
+  <video class="hero-video" src="img/77acf71c68575638dd6b81ca0e7b3757.mp4" poster="img/875492f18a9bea7cdfc4826ba34903ae.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
   <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,21,42,.45) 0%,rgba(6,21,42,0) 22%,rgba(6,21,42,0) 45%,rgba(6,21,42,.35) 70%,rgba(6,21,42,.7) 100%)"></div>
     <div class="hero-grande hg-dentro" aria-hidden="true"><p class="hg-txt">Hacemos<br>fácil viajar</p></div>
   </div>
@@ -210,12 +207,8 @@ h1,h2,h3,p{margin:0}
     <a class="pill pill-white" href="#planes" style="margin-top:28px">Ver planes <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
   </div>
 
-  <div class="wrap hero-fin" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#FFFFFF">
-    <p class="cap-slide" style="font-size:13px;line-height:1.4"><span style="font-weight:600"><span id="slideName">San Andrés</span></span><br><span style="opacity:.75"><span id="slideCoords">12.58° N, 81.70° W</span></span></p>
-    <div aria-hidden="true" style="display:flex;gap:8px;padding-bottom:6px">
-      <span class="bar" style="opacity:1" data-bar="0"></span><span class="bar" style="opacity:.35" data-bar="1"></span><span class="bar" style="opacity:.35" data-bar="2"></span><span class="bar" style="opacity:.35" data-bar="3"></span>
-    </div>
-    <button id="pausa" type="button" aria-label="Pausar el carrusel" style="background:none;border:1px solid rgba(255,255,255,.5);color:#FFFFFF;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+  <div class="wrap hero-fin" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:flex-end;gap:16px;color:#FFFFFF">
+    <button id="pausa" type="button" aria-label="Pausar el video" style="background:none;border:1px solid rgba(255,255,255,.5);color:#FFFFFF;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
       <svg id="icoPlay" hidden aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"></path></svg>
       <svg id="icoPause" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"></rect><rect x="14" y="4.5" width="4" height="15" rx="1"></rect></svg>
     </button>
@@ -511,16 +504,12 @@ h1,h2,h3,p{margin:0}
 <script>
 (function(){
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-var slides=[['San Andrés','12.58° N, 81.70° W'],['Cartagena','10.42° N, 75.55° W'],['Parque Tayrona','11.31° N, 74.03° W'],['Cabo de la Vela, La Guajira','12.20° N, 72.15° W']];
-var i=0,paused=reduce;
-var sImgs=document.querySelectorAll('[data-slide]'),bars=document.querySelectorAll('[data-bar]');
+var paused=reduce,vid=document.querySelector('.hero-video');
 var btn=document.getElementById('pausa'),play=document.getElementById('icoPlay'),pause=document.getElementById('icoPause');
-function show(n){i=n;sImgs.forEach(function(e,k){e.style.opacity=k===n?1:0});bars.forEach(function(e,k){e.style.opacity=k===n?1:.35});
-document.getElementById('slideName').textContent=slides[n][0];document.getElementById('slideCoords').textContent=slides[n][1];}
-function setPaused(p){paused=p;play.hidden=!p;pause.hidden=p;btn.setAttribute('aria-label',p?'Reanudar el carrusel':'Pausar el carrusel');}
+function setPaused(p){paused=p;play.hidden=!p;pause.hidden=p;btn.setAttribute('aria-label',p?'Reproducir el video':'Pausar el video');
+if(vid){if(p){vid.pause()}else{var pr=vid.play();if(pr&&pr.catch)pr.catch(function(){})}}}
 setPaused(paused);
 btn.addEventListener('click',function(){setPaused(!paused)});
-setInterval(function(){if(!paused)show((i+1)%slides.length)},6000);
 var exps=[['Sunset Fest','Música frente al mar hasta que se esconde el sol. Viajas desde Cali con transporte, hotel y entrada al festival.','Quiero ir a Sunset Fest'],
 ['Eliminatorias','Vamos a alentar a la Selección. Boleta, vuelo y hotel en un solo plan, con el grupo de Hoturis.','Quiero ir al partido'],
 ['Terrestres','Escapadas en bus desde Cali a pueblos con encanto como Guatapé, Salento o Filandia. Fines de semana y puentes festivos.','Ver salidas en bus']];
