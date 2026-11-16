@@ -7,7 +7,7 @@
 <meta name="description" content="Agencia de viajes familiar en Cali desde 1989. Planes nacionales e internacionales con salida desde Cali.">
 <link rel="icon" href="img/53681a562ea3554cd8c712ca74c1c52f.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
 <style>
 :root{--navy:#050F1F;--navy2:#0E1F38;--deep:#020812;--line:rgba(255,255,255,.13);--text:#F3F6FA;--muted:#9CAEC6;--red:#E40134;--light:#F3F5F8}
 body{margin:0;background:var(--navy);color:var(--text);font-family:'Inter Tight',system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -47,6 +47,21 @@ h1,h2,h3,p{margin:0}
 .opc{display:block;width:100%;min-height:48px;text-align:left;font:inherit;font-size:15px;font-weight:500;color:#0A1E38;padding:12px 16px;border:1px solid;border-radius:10px;cursor:pointer;transition:background-color .2s,border-color .2s}
 .quiz-otra{min-height:44px;padding:0 18px;border:1px solid rgba(10,30,56,.3);border-radius:999px;background:none;color:#0A1E38;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
 .quiz-otra:hover{border-color:#0A1E38}
+/* frases animadas */
+.frase{position:relative;height:220vh}
+.frase-pin{position:sticky;top:0;height:100vh;min-height:560px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.frase{view-timeline-name:--frase;view-timeline-axis:block}
+.frase-txt{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(38px,5.6vw,88px);line-height:1.04;letter-spacing:-.015em;color:#0A1E38;max-width:20ch;margin:0 auto;text-wrap:balance}
+.frase-txt .em{font-style:italic;color:#C8002E}
+.frase-firma{margin-top:28px;font-size:14px;color:#5A6577}
+.frase-pie{position:absolute;left:0;right:0;bottom:32px;display:flex;justify-content:space-between;gap:16px;font-size:13px;color:#3A4A60}
+.frase-pie span:first-child{margin-left:72px}
+@supports (animation-timeline: view()){
+ .frase .w{animation:palabra linear both;animation-timeline:--frase;animation-range:contain var(--a) contain var(--b)}
+ .frase-firma{animation:palabra linear both;animation-timeline:--frase;animation-range:contain 70% contain 80%}
+}
+@keyframes palabra{from{opacity:.12}to{opacity:1}}
+@supports not (animation-timeline: view()){.frase{height:auto}.frase-pin{position:static;height:auto;min-height:0;padding:clamp(96px,12vw,160px) 0 120px}}
 /* internacionales */
 .intl2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(40px,6vw,96px);align-items:start}
 .intl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -116,18 +131,20 @@ h1,h2,h3,p{margin:0}
 @media (max-width:640px){
  .solo-escritorio{display:none!important}
  .cap-slide{visibility:hidden}
+ .frase{height:180vh}
+ .frase-pie{flex-direction:column;align-items:center;gap:4px;bottom:24px}.frase-pie span:first-child{margin-left:0}
  .nac>article{grid-template-columns:1fr 112px;gap:16px}
  .cab-intl{grid-template-columns:1fr!important;gap:12px!important}
  .intl-grid{gap:10px}.dest .nombre{font-size:15px}.dest .info{left:12px;right:12px;bottom:12px}
  .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
  .navlink{font-size:13px}
 }
-@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}}
+@media (prefers-reduced-motion:reduce){.slide,.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.frase{height:auto}.frase-pin{position:static;height:auto;min-height:0;padding:120px 0}.frase .w,.frase-firma{animation:none!important;opacity:1}}
 </style>
 <style>.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
 </head>
 <body>
-<div style="width:100%;overflow-x:hidden">
+<div style="width:100%;overflow-x:clip">
 
 <!-- 1. HERO -->
 <section aria-label="Portada" style="position:relative;height:100vh;min-height:620px;max-height:980px;overflow:hidden;background:#000">
@@ -167,6 +184,20 @@ h1,h2,h3,p{margin:0}
   </div>
 </section>
 
+<!-- 1b. FRASE INTERNACIONAL -->
+<section class="frase claro" aria-label="Frase sobre viajar por el mundo" style="background:#FFFFFF">
+  <div class="frase-pin">
+    <div class="wrap" style="text-align:center">
+      <p class="frase-txt"><span class="w" style="--a:4.0%;--b:14.0%">El</span> <span class="w" style="--a:8.8%;--b:18.8%">mundo</span> <span class="w" style="--a:13.5%;--b:23.5%">es</span> <span class="w" style="--a:18.3%;--b:28.3%">un</span> <span class="w" style="--a:23.1%;--b:33.1%">libro,</span> <span class="w" style="--a:27.8%;--b:37.8%">y</span> <span class="w" style="--a:32.6%;--b:42.6%">quienes</span> <span class="w" style="--a:37.4%;--b:47.4%">no</span> <span class="w" style="--a:42.2%;--b:52.2%">viajan</span> <span class="w" style="--a:46.9%;--b:56.9%">leen</span> <span class="w em" style="--a:51.7%;--b:61.7%">solo</span> <span class="w em" style="--a:56.5%;--b:66.5%">una</span> <span class="w em" style="--a:61.2%;--b:71.2%">página.</span></p>
+        <p class="frase-firma">Atribuida a San Agustín</p>
+    </div>
+    <div class="wrap frase-pie">
+      <span>37 años viajando desde Cali</span>
+      <span>Miembros de IATA y ANATO</span>
+    </div>
+  </div>
+</section>
+
 <!-- 2. INTERNACIONALES -->
 <section id="planes" class="claro cielo-a" aria-labelledby="t-intl" style="padding:clamp(64px,8vw,112px) 0 clamp(40px,5vw,64px)">
   <div class="wrap">
@@ -187,13 +218,16 @@ h1,h2,h3,p{margin:0}
   </div>
 </section>
 
-<!-- 2b. QUIZ COLOMBIA -->
-<section aria-labelledby="t-quiz" style="background:var(--navy);padding:clamp(88px,11vw,160px) 0;text-align:center">
-  <div class="wrap">
-    <p class="muted" style="font-size:14px">Cinco preguntas, un minuto</p>
-    <h2 id="t-quiz" class="tight" style="font-size:clamp(44px,6.4vw,96px);max-width:13ch;margin:16px auto 0;text-wrap:balance">¿Qué tan bien conoces Colombia?</h2>
-    <p style="font-size:clamp(15px,1.2vw,17px);font-weight:300;line-height:1.5;max-width:42ch;margin:20px auto 0">Pon a prueba lo que sabes de tu país. Quizá descubras tu próximo destino.</p>
-    <button class="pill pill-red" type="button" id="quizOpen" style="margin-top:32px;border:0;cursor:pointer;font-family:inherit">Hacer el quiz <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></button>
+<!-- 2c. FRASE NACIONAL -->
+<section class="frase claro" aria-label="Frase sobre viajar por Colombia" style="background:#FFFFFF">
+  <div class="frase-pin">
+    <div class="wrap" style="text-align:center">
+      <p class="frase-txt"><span class="w" style="--a:4.0%;--b:14.0%">No</span> <span class="w" style="--a:7.3%;--b:17.3%">hace</span> <span class="w" style="--a:10.5%;--b:20.5%">falta</span> <span class="w" style="--a:13.8%;--b:23.8%">cruzar</span> <span class="w" style="--a:17.1%;--b:27.1%">un</span> <span class="w" style="--a:20.3%;--b:30.3%">océano</span> <span class="w" style="--a:23.6%;--b:33.6%">para</span> <span class="w" style="--a:26.8%;--b:36.8%">que</span> <span class="w" style="--a:30.1%;--b:40.1%">el</span> <span class="w" style="--a:33.4%;--b:43.4%">viaje</span> <span class="w" style="--a:36.6%;--b:46.6%">te</span> <span class="w" style="--a:39.9%;--b:49.9%">cambie.</span> <span class="w" style="--a:43.2%;--b:53.2%">A</span> <span class="w" style="--a:46.4%;--b:56.4%">veces</span> <span class="w" style="--a:49.7%;--b:59.7%">basta</span> <span class="w" style="--a:52.9%;--b:62.9%">con</span> <span class="w em" style="--a:56.2%;--b:66.2%">salir</span> <span class="w em" style="--a:59.5%;--b:69.5%">de</span> <span class="w em" style="--a:62.7%;--b:72.7%">Cali.</span></p>
+    </div>
+    <div class="wrap frase-pie">
+      <span>Seis destinos nacionales</span>
+      <span>Salidas desde Cali todo el año</span>
+    </div>
   </div>
 </section>
 
@@ -287,6 +321,16 @@ h1,h2,h3,p{margin:0}
         <img src="img/04d1c1307fbb720477d2610fcba26b18.jpg" alt="Canoa de madera sobre el río Amazonas" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
       </article>
     </div>
+  </div>
+</section>
+
+<!-- 2b. QUIZ COLOMBIA -->
+<section aria-labelledby="t-quiz" style="background:var(--navy);padding:clamp(88px,11vw,160px) 0;text-align:center">
+  <div class="wrap">
+    <p class="muted" style="font-size:14px">Cinco preguntas, un minuto</p>
+    <h2 id="t-quiz" class="tight" style="font-size:clamp(44px,6.4vw,96px);max-width:13ch;margin:16px auto 0;text-wrap:balance">¿Qué tan bien conoces Colombia?</h2>
+    <p style="font-size:clamp(15px,1.2vw,17px);font-weight:300;line-height:1.5;max-width:42ch;margin:20px auto 0">Pon a prueba lo que sabes de tu país. Quizá descubras tu próximo destino.</p>
+    <button class="pill pill-red" type="button" id="quizOpen" style="margin-top:32px;border:0;cursor:pointer;font-family:inherit">Hacer el quiz <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></button>
   </div>
 </section>
 
