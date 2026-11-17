@@ -141,6 +141,23 @@ h1,h2,h3,p{margin:0}
 .linea{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
 .linea>div{padding:24px 20px 0 0;position:relative}
 .linea>div::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--text)}
+/* artículos interactivos */
+.arts2{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
+.art-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.art-card{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#0B1A31;outline:2px solid transparent;outline-offset:3px;transition:opacity .35s,outline-color .35s}
+.art-card:hover{opacity:1!important}
+.art-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.art-card:hover img{transform:scale(1.04)}
+.art-velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,21,42,0) 35%,rgba(6,21,42,.85) 100%)}
+.art-sel{position:absolute;inset:0;width:100%;border:0;background:none;padding:18px 18px 64px;text-align:left;color:#FFFFFF;font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.art-tag{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.art-tit{font-size:clamp(15px,1.3vw,18px);font-weight:600;line-height:1.25;letter-spacing:-.01em}
+.art-ir{position:absolute;left:18px;bottom:18px;z-index:1;display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;border-radius:999px;background:#FFFFFF;color:#0A1E38;font-size:13px;font-weight:600;text-decoration:none;transition:background-color .25s,color .25s}
+.art-ir:hover{background:var(--red);color:#FFFFFF}
+.art-lado{position:sticky;top:48px}
+.art-resumen{margin-top:clamp(28px,4vw,56px);padding-top:28px;border-top:1px solid var(--line)}
+.art-r-tit{font-family:'Newsreader',Georgia,serif;font-weight:300;font-optical-sizing:auto;font-size:clamp(26px,2.4vw,36px);line-height:1.12;letter-spacing:-.01em;margin-top:16px;text-wrap:balance}
+.art-r-txt{font-size:clamp(15px,1.2vw,17px);font-weight:300;line-height:1.6;margin-top:14px;max-width:46ch;color:#3A4A60}
 /* artículos */
 .arts{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
 .tag{display:inline-block;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:3px 12px;font-size:12px;color:var(--muted)}
@@ -159,6 +176,7 @@ h1,h2,h3,p{margin:0}
  .hito .ph{width:100%!important;aspect-ratio:4/3!important;margin-left:0!important}
  .hito .desc{margin-left:0!important}
  .arts{grid-template-columns:1fr;gap:32px}
+ .arts2{grid-template-columns:1fr}.art-lado{position:static;order:-1}
 }
 @media (max-width:640px){
  .solo-escritorio{display:none!important}
@@ -170,11 +188,11 @@ h1,h2,h3,p{margin:0}
  .nac>article{grid-template-columns:1fr;gap:18px}
  .nac>article>img{order:-1;aspect-ratio:16/10!important}
  .cab-intl{grid-template-columns:1fr!important;gap:12px!important}
- .intl-grid{gap:10px}.dest .nombre{font-size:15px}.dest .info{left:12px;right:12px;bottom:12px}
+ .intl-grid{gap:10px}.art-grid{gap:10px}.art-sel{padding:12px 12px 56px}.art-tit{font-size:14px}.art-ir{left:12px;bottom:12px;font-size:12px}.dest .nombre{font-size:15px}.dest .info{left:12px;right:12px;bottom:12px}
  .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
  .navlink{font-size:13px}
 }
-@media (prefers-reduced-motion:reduce){.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.hero-grande{display:none!important}.hero-marco{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
+@media (prefers-reduced-motion:reduce){.bar,.cajon,.cajon .marca,.hito,.dest img,.opc,.art-card,.art-card img{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.hero-grande{display:none!important}.hero-marco{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
 </style>
 <style>[hidden]{display:none!important}.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
 </head>
@@ -424,16 +442,47 @@ h1,h2,h3,p{margin:0}
 </section>
 
 <!-- 6. ARTÍCULOS -->
-<section class="claro" aria-labelledby="t-art" style="background:#F2F7FC;padding:clamp(56px,7vw,96px) 0">
+<section class="claro" aria-labelledby="t-art" style="background:#F2F7FC;padding:clamp(64px,8vw,112px) 0">
   <div class="wrap">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(28px,3vw,44px)">
-      <h2 id="t-art" style="font-size:14px;font-weight:500" class="muted">Artículos</h2>
-      <a href="#" style="font-size:14px;font-weight:500;text-underline-offset:4px">Ver todos los artículos</a>
-    </div>
-    <div class="arts">
-      <a href="#"><img src="img/7fa20dd06a60384ded9a8317a0e7b4d2.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"><span class="tag" style="margin-top:18px">Equipaje</span><h3 style="font-size:clamp(19px,1.6vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.25;margin-top:12px">Qué empacar para San Andrés si vas con niños</h3></a>
-      <a href="#"><img src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"><span class="tag" style="margin-top:18px">Cuándo ir</span><h3 style="font-size:clamp(19px,1.6vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.25;margin-top:12px">La mejor época para conocer La Guajira</h3></a>
-      <a href="#"><img src="img/09efef9d3d8e8e31f238354d6072e982.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"><span class="tag" style="margin-top:18px">Documentos</span><h3 style="font-size:clamp(19px,1.6vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.25;margin-top:12px">Viajar a Europa desde Colombia: qué te piden en migración</h3></a>
+    <div class="arts2">
+      <div class="art-grid">
+        <div class="art-card" data-art="0" style="opacity:1;outline-color:#C8002E">
+          <img src="img/7fa20dd06a60384ded9a8317a0e7b4d2.jpg" alt="Playa con palmeras en San Andrés">
+          <span class="art-velo" aria-hidden="true"></span>
+          <button class="art-sel" type="button" aria-pressed="true"><span class="art-tag">Equipaje</span><span class="art-tit">Qué empacar para San Andrés si vas con niños</span></button>
+          <a class="art-ir" href="#">Ir al artículo <span aria-hidden="true"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+        </div>
+        <div class="art-card" data-art="1" style="opacity:.62;outline-color:transparent">
+          <img src="img/f3ecf85f81353527db69b275035fdf66.jpg" alt="Chinchorros frente al mar en La Guajira">
+          <span class="art-velo" aria-hidden="true"></span>
+          <button class="art-sel" type="button" aria-pressed="false"><span class="art-tag">Cuándo ir</span><span class="art-tit">La mejor época para conocer La Guajira</span></button>
+          <a class="art-ir" href="#">Ir al artículo <span aria-hidden="true"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+        </div>
+        <div class="art-card" data-art="2" style="opacity:.62;outline-color:transparent">
+          <img src="img/09efef9d3d8e8e31f238354d6072e982.jpg" alt="El Coliseo de Roma al atardecer">
+          <span class="art-velo" aria-hidden="true"></span>
+          <button class="art-sel" type="button" aria-pressed="false"><span class="art-tag">Documentos</span><span class="art-tit">Viajar a Europa desde Colombia: qué te piden en migración</span></button>
+          <a class="art-ir" href="#">Ir al artículo <span aria-hidden="true"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+        </div>
+        <div class="art-card" data-art="3" style="opacity:.62;outline-color:transparent">
+          <img src="img/7ecb7ed866b49fb613259952b39d0193.jpg" alt="Palmas de cera en el Valle de Cocora">
+          <span class="art-velo" aria-hidden="true"></span>
+          <button class="art-sel" type="button" aria-pressed="false"><span class="art-tag">Planes</span><span class="art-tit">Eje Cafetero en cuatro días: lo que no te puedes perder</span></button>
+          <a class="art-ir" href="#">Ir al artículo <span aria-hidden="true"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+        </div>
+      </div>
+      <div class="art-lado">
+        <h2 id="t-art" class="tit-serif">Nuestros <em>artículos</em></h2>
+        <div class="art-resumen" aria-live="polite">
+          <span class="tag"><span id="artTag">Equipaje</span></span>
+          <p class="art-r-tit"><span id="artTit">Qué empacar para San Andrés si vas con niños</span></p>
+          <p class="art-r-txt"><span id="artTxt">Protector solar biodegradable, zapatos para el agua y una bolsa seca para el celular. Te contamos qué llevar para que los niños disfruten el mar sin sustos y tú viajes con la maleta justa.</span></p>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:28px">
+            <a class="pill pill-dark" href="#">Leer el artículo completo <span class="ico"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+            <a href="#" style="font-size:14px;font-weight:500;text-underline-offset:4px">Ver todos los artículos</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -564,6 +613,15 @@ var frs=document.querySelectorAll('.frase[data-f]');
 function run(fr){var t=fr.querySelector('.frase-txt');if(t)t.style.animationPlayState='running';}
 if(reduce||!('IntersectionObserver' in window)){frs.forEach(run);}
 else{var fo=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);fo.unobserve(x.target);}})},{threshold:.45});frs.forEach(function(f){fo.observe(f)});}
+
+var ARTS=[['Equipaje','Qué empacar para San Andrés si vas con niños','Protector solar biodegradable, zapatos para el agua y una bolsa seca para el celular. Te contamos qué llevar para que los niños disfruten el mar sin sustos y tú viajes con la maleta justa.'],
+['Cuándo ir','La mejor época para conocer La Guajira','La temporada seca, de diciembre a abril, es la más cómoda para recorrer el desierto y llegar a Punta Gallinas. Te explicamos qué esperar en cada época y cómo evitar los caminos embarrados.'],
+['Documentos','Viajar a Europa desde Colombia: qué te piden en migración','Para estancias cortas en el espacio Schengen no necesitas visa, pero en la frontera pueden pedirte reserva de hotel, tiquete de regreso, seguro de viaje y solvencia económica. Repasamos la lista para que llegues tranquilo.'],
+['Planes','Eje Cafetero en cuatro días: lo que no te puedes perder','Valle de Cocora, Salento, una finca cafetera y unos termales para cerrar. Así armamos un recorrido de cuatro días saliendo de Cali, sin correr y con tiempo para el café.']];
+var artCards=document.querySelectorAll('[data-art]');
+artCards.forEach(function(card){card.querySelector('.art-sel').addEventListener('click',function(){var n=+card.getAttribute('data-art');
+artCards.forEach(function(c,k){c.style.opacity=k===n?1:.62;c.style.outlineColor=k===n?'#C8002E':'transparent';c.querySelector('.art-sel').setAttribute('aria-pressed',k===n?'true':'false')});
+document.getElementById('artTag').textContent=ARTS[n][0];document.getElementById('artTit').textContent=ARTS[n][1];document.getElementById('artTxt').textContent=ARTS[n][2];});});
 })();
 </script>
 </body>
