@@ -94,17 +94,16 @@ h1,h2,h3,p{margin:0}
 .frase-pie span:last-child{margin-right:72px}
 /* footer */
 .foot{background:#FFFFFF;color:#0A1E38;padding:64px 0 28px;font-size:14px;border-top:1px solid #E3E8EF}
-.foot-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px 48px}
-.foot-lema{margin-top:16px;color:#3A4A60;max-width:26ch;line-height:1.5}
-.foot-col{display:flex;flex-direction:column;gap:10px;color:#3A4A60}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px 64px}
+.foot-dir{margin-top:20px;display:flex;flex-direction:column;gap:6px;color:#3A4A60}
+.foot-col{display:flex;flex-direction:column;gap:10px;color:#3A4A60;min-width:160px}
 .foot-tit{font-weight:600;color:#0A1E38;margin-bottom:4px}
-.foot-redes{display:flex;flex-wrap:wrap;gap:10px}
-.foot-red{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px;border:1px solid rgba(10,30,56,.2);border-radius:999px;color:#0A1E38!important;font-weight:600;font-size:13px}
+.foot-redes{display:flex;justify-content:center;gap:14px;margin-top:48px}
+.foot-red{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid rgba(10,30,56,.2);border-radius:50%;color:#0A1E38!important;transition:background-color .25s,border-color .25s,color .25s}
 .foot-red:hover{border-color:var(--red);background:var(--red);color:#FFFFFF!important}
-.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;margin-top:56px;padding-top:20px;border-top:1px solid #E3E8EF;font-size:12px;color:#5B6472}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;margin-top:28px;padding-top:20px;border-top:1px solid #E3E8EF;font-size:12px;color:#5B6472}
 .foot-legal{display:flex;flex-wrap:wrap;gap:8px 24px;margin-right:76px}
 .foot-legal a{color:#5B6472!important}
-@media (max-width:980px){.foot-top{grid-template-columns:1fr 1fr}.foot-marca{grid-column:1 / -1}}
 @media (max-width:640px){.foot-base{flex-direction:column;align-items:flex-start;padding-bottom:64px}.foot-legal{margin-right:0}}
 /* internacionales */
 .intl2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(40px,6vw,96px);align-items:start}
@@ -517,7 +516,11 @@ h1,h2,h3,p{margin:0}
     <div class="foot-top">
       <div class="foot-marca">
         <img src="img/cad50d5b6eb818d75e632c219d694ee1.webp" alt="Hoturis Agencia de Viajes" style="display:block;width:140px;height:auto">
-        <p class="foot-lema">Agencia de viajes familiar en Cali desde 1989.</p>
+        <div class="foot-dir">
+          <p>Av. 6a N # 25-44, Cali</p>
+          <p>Cra. 4 # 8-18, Local 104, Cali</p>
+          <p>(602) 667 83 83</p>
+        </div>
       </div>
       <nav class="foot-col" aria-label="Planes">
         <p class="foot-tit">Planes</p>
@@ -526,19 +529,11 @@ h1,h2,h3,p{margin:0}
         <a href="#experiencias">Experiencias</a>
         <a href="#articulos">Artículos</a>
       </nav>
-      <div class="foot-col">
-        <p class="foot-tit">Visítanos</p>
-        <p>Av. 6a N # 25-44, Cali</p>
-        <p>Cra. 4 # 8-18, Local 104, Cali</p>
-        <p>(602) 667 83 83</p>
-      </div>
-      <div class="foot-col">
-        <p class="foot-tit">Síguenos</p>
-        <div class="foot-redes">
-          <a class="foot-red" href="#">Instagram <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></a>
-          <a class="foot-red" href="#">Facebook <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></a>
-        </div>
-      </div>
+    </div>
+    <div class="foot-redes">
+      <a class="foot-red" href="#" aria-label="Hoturis en Instagram"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"></circle></svg></a>
+      <a class="foot-red" href="#" aria-label="Hoturis en Facebook"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h2.5V4.5H14A3.5 3.5 0 0 0 10.5 8v2.5H8V14h2.5v6H14v-6h2.5l.5-3.5h-3V8.5c0-.3.2-.5.5-.5z"></path></svg></a>
+      <a class="foot-red" href="#" aria-label="Hoturis en TikTok"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"></path></svg></a>
     </div>
     <div class="foot-base">
       <p>© 2026 Hoturis Agencia de Viajes · RNT 6009 · Miembros de IATA y ANATO</p>
