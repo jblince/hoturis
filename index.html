@@ -92,6 +92,20 @@ h1,h2,h3,p{margin:0}
 .frase-firma{margin-top:28px;font-size:14px;color:#5A6577}
 .frase-pie{position:absolute;left:0;right:0;bottom:32px;display:flex;justify-content:space-between;gap:16px;font-size:13px;color:#3A4A60}
 .frase-pie span:last-child{margin-right:72px}
+/* footer */
+.foot{background:#FFFFFF;color:#0A1E38;padding:64px 0 28px;font-size:14px;border-top:1px solid #E3E8EF}
+.foot-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px 48px}
+.foot-lema{margin-top:16px;color:#3A4A60;max-width:26ch;line-height:1.5}
+.foot-col{display:flex;flex-direction:column;gap:10px;color:#3A4A60}
+.foot-tit{font-weight:600;color:#0A1E38;margin-bottom:4px}
+.foot-redes{display:flex;flex-wrap:wrap;gap:10px}
+.foot-red{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px;border:1px solid rgba(10,30,56,.2);border-radius:999px;color:#0A1E38!important;font-weight:600;font-size:13px}
+.foot-red:hover{border-color:var(--red);background:var(--red);color:#FFFFFF!important}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;margin-top:56px;padding-top:20px;border-top:1px solid #E3E8EF;font-size:12px;color:#5B6472}
+.foot-legal{display:flex;flex-wrap:wrap;gap:8px 24px;margin-right:76px}
+.foot-legal a{color:#5B6472!important}
+@media (max-width:980px){.foot-top{grid-template-columns:1fr 1fr}.foot-marca{grid-column:1 / -1}}
+@media (max-width:640px){.foot-base{flex-direction:column;align-items:flex-start;padding-bottom:64px}.foot-legal{margin-right:0}}
 /* internacionales */
 .intl2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(40px,6vw,96px);align-items:start}
 .intl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -214,9 +228,9 @@ h1,h2,h3,p{margin:0}
     <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px">
       <a href="#" class="hero-logo" style="display:block;position:relative"><img class="logo-b" src="img/53681a562ea3554cd8c712ca74c1c52f.png" alt="Hoturis Agencia de Viajes, inicio" style="display:block;width:clamp(110px,11vw,160px);height:auto"><img class="logo-c" src="img/dfd4ba1e5929c249265e02b3a035e93b.webp" alt="" style="position:absolute;inset:0;width:100%;height:auto"></a>
       <nav aria-label="Principal" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,32px)">
-        <a class="navlink" href="#">Planes</a>
-        <a class="navlink" href="#">Artículos</a>
-        <a class="navlink" href="#">Nosotros</a>
+        <a class="navlink" href="#planes">Planes</a>
+        <a class="navlink" href="#articulos">Artículos</a>
+        <a class="navlink" href="#nosotros">Nosotros</a>
         <a class="navlink solo-escritorio" href="#" style="border:1px solid currentColor;border-radius:999px;padding:9px 18px">Escríbenos por WhatsApp</a>
       </nav>
     </div>
@@ -389,7 +403,7 @@ h1,h2,h3,p{margin:0}
 </section>
 
 <!-- 4. EXPERIENCIAS -->
-<section class="exp" aria-labelledby="t-exp">
+<section id="experiencias" class="exp" aria-labelledby="t-exp">
   <img class="slide" src="img/f236d8575f30d681f31e459f863c3bee.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1" data-xslide="0">
   <img class="slide" src="img/d680e6fdcbd8d9a1d3677bec60c64dd0.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-xslide="1">
   <img class="slide" src="img/e6cb604fdd6a57cd3234a61c948a2cb2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0" data-xslide="2">
@@ -411,7 +425,7 @@ h1,h2,h3,p{margin:0}
 </section>
 
 <!-- 5. POR QUÉ HOTURIS -->
-<section class="claro" aria-labelledby="t-hist" style="padding:clamp(72px,9vw,128px) 0">
+<section id="nosotros" class="claro" aria-labelledby="t-hist" style="padding:clamp(72px,9vw,128px) 0">
   <div class="wrap">
     <h2 id="t-hist" class="muted" style="text-align:center;font-size:14px;font-weight:500;margin-bottom:22px">Por qué Hoturis</h2>
     <p style="text-align:center;font-size:clamp(21px,2.2vw,30px);line-height:1.35;letter-spacing:-.02em;max-width:30ch;margin:0 auto;font-weight:500">Somos una empresa familiar caleña. Llevamos 37 años organizando los viajes de las familias del Valle, y nos sigues encontrando en la misma esquina.</p>
@@ -442,7 +456,7 @@ h1,h2,h3,p{margin:0}
 </section>
 
 <!-- 6. ARTÍCULOS -->
-<section class="claro" aria-labelledby="t-art" style="background:#F2F7FC;padding:clamp(64px,8vw,112px) 0">
+<section id="articulos" class="claro" aria-labelledby="t-art" style="background:#F2F7FC;padding:clamp(64px,8vw,112px) 0">
   <div class="wrap">
     <div class="arts2">
       <div class="art-grid">
@@ -498,21 +512,42 @@ h1,h2,h3,p{margin:0}
 </section>
 
 <!-- FOOTER -->
-<footer class="foot" style="background:#FFFFFF;color:#0A1E38;padding:56px 0 32px;font-size:14px">
+<footer class="foot">
   <div class="wrap">
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:36px 48px">
-      <div style="max-width:280px">
-        <img src="img/cad50d5b6eb818d75e632c219d694ee1.webp" alt="Hoturis Agencia de Viajes" style="display:block;width:130px;height:auto">
-        <p style="margin-top:16px;color:#3A4A60">Av. 6a N # 25-44, Cali<br>Cra. 4 # 8-18, Local 104, Cali<br>(602) 667 83 83</p>
+    <div class="foot-top">
+      <div class="foot-marca">
+        <img src="img/cad50d5b6eb818d75e632c219d694ee1.webp" alt="Hoturis Agencia de Viajes" style="display:block;width:140px;height:auto">
+        <p class="foot-lema">Agencia de viajes familiar en Cali desde 1989.</p>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:32px 64px">
-        <div><p style="font-weight:600;margin-bottom:10px">Planes</p><p style="line-height:2"><a href="#">Nacionales</a><br><a href="#">Internacionales</a><br><a href="#">Experiencias</a></p></div>
-        <div><p style="font-weight:600;margin-bottom:10px">Hoturis</p><p style="line-height:2"><a href="#">Nosotros</a><br><a href="#">Visas</a><br><a href="#">Hoturis Mayorista</a></p></div>
-        <div><p style="font-weight:600;margin-bottom:10px">Legal</p><p style="line-height:2"><a href="#">Preguntas frecuentes</a><br><a href="#">Términos de uso</a><br><a href="#">PQRS</a><br><a href="#">Protección de datos</a></p></div>
-        <div><p style="font-weight:600;margin-bottom:10px">Síguenos</p><p style="line-height:2"><a href="#">Instagram</a><br><a href="#">Facebook</a></p></div>
+      <nav class="foot-col" aria-label="Planes">
+        <p class="foot-tit">Planes</p>
+        <a href="#planes">Internacionales</a>
+        <a href="#nacional">Nacionales</a>
+        <a href="#experiencias">Experiencias</a>
+        <a href="#articulos">Artículos</a>
+      </nav>
+      <div class="foot-col">
+        <p class="foot-tit">Visítanos</p>
+        <p>Av. 6a N # 25-44, Cali</p>
+        <p>Cra. 4 # 8-18, Local 104, Cali</p>
+        <p>(602) 667 83 83</p>
+      </div>
+      <div class="foot-col">
+        <p class="foot-tit">Síguenos</p>
+        <div class="foot-redes">
+          <a class="foot-red" href="#">Instagram <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></a>
+          <a class="foot-red" href="#">Facebook <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></a>
+        </div>
       </div>
     </div>
-    <p style="margin-top:44px;padding-top:20px;border-top:1px solid #D9DFE7;font-size:12px;color:#5B6472">RNT 6009. Miembros de IATA y ANATO. Fotos: Unsplash (Darren Lawrence, Jaime Bishara, Levi Ari Pronk, Julian Florez, Victor Rosario, Arthur Hutterer, Marco Grosso, Ricky Beron, Lina Micán, Shawn Appel, Nareeta Martin, chaim weingarten, Krzysztof Dubiel, Ricardo Cifuentes T., Carles Rabada).</p>
+    <div class="foot-base">
+      <p>© 2026 Hoturis Agencia de Viajes · RNT 6009 · Miembros de IATA y ANATO</p>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="#">Términos de uso</a>
+        <a href="#">Protección de datos</a>
+        <a href="#">PQRS</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
