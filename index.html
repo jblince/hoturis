@@ -108,7 +108,8 @@ h1,h2,h3,p{margin:0}
 .tit-serif em{display:block;font-style:italic;color:#C8002E}
 /* nacionales */
 .nac{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.nac>article{display:grid;grid-template-columns:1fr 210px;gap:24px;padding:28px 28px 28px 0;border-bottom:1px solid var(--line)}
+.nac>article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;padding:28px 28px 28px 0;border-bottom:1px solid var(--line)}
+.nac>article>img{aspect-ratio:4/3!important;height:auto;align-self:start}
 .nac>article:nth-child(2n){padding:28px 0 28px 28px;border-left:1px solid var(--line)}
 .dato{display:flex;justify-content:flex-start;align-items:flex-start;gap:10px;font-size:13px;padding:5px 0}
 .dato svg{flex:none;color:var(--muted);order:-1;margin-top:2px}
@@ -166,7 +167,8 @@ h1,h2,h3,p{margin:0}
  .hg-txt{font-size:calc((100vw - 32px) / 6.4)!important;line-height:.92!important}
  .hero-final{bottom:96px}
  .frase-pie{flex-direction:column;align-items:center;gap:4px;bottom:24px}.frase-pie span:last-child{margin-right:0}
- .nac>article{grid-template-columns:1fr 112px;gap:16px}
+ .nac>article{grid-template-columns:1fr;gap:18px}
+ .nac>article>img{order:-1;aspect-ratio:16/10!important}
  .cab-intl{grid-template-columns:1fr!important;gap:12px!important}
  .intl-grid{gap:10px}.dest .nombre{font-size:15px}.dest .info{left:12px;right:12px;bottom:12px}
  .cajon{padding:18px 12px 22px;min-height:160px}.cajon .num{font-size:30px}.cajon .nom{font-size:14px;padding-top:28px}
