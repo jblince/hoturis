@@ -56,7 +56,6 @@ h1,h2,h3,p{margin:0}
 .hg-fuera .hg-txt{color:#0A1E38}
 .hg-dentro .hg-txt{color:#FFFFFF}
 .hero-final{position:absolute;left:0;right:0;bottom:clamp(100px,14vh,150px);z-index:1;color:#FFFFFF}
-.cap-slide{margin-left:68px}
 .hf-ceja{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 .hf-titulo{font-family:'Newsreader',Georgia,serif;font-weight:300;font-optical-sizing:auto;font-size:clamp(40px,4.8vw,76px);line-height:1;letter-spacing:-.01em;max-width:15ch;margin-top:14px;text-wrap:balance}
 .logo-c{opacity:0}
@@ -92,7 +91,7 @@ h1,h2,h3,p{margin:0}
 @keyframes cursor{0%{opacity:1}50%{opacity:0}}
 .frase-firma{margin-top:28px;font-size:14px;color:#5A6577}
 .frase-pie{position:absolute;left:0;right:0;bottom:32px;display:flex;justify-content:space-between;gap:16px;font-size:13px;color:#3A4A60}
-.frase-pie span:first-child{margin-left:72px}
+.frase-pie span:last-child{margin-right:72px}
 /* internacionales */
 .intl2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(40px,6vw,96px);align-items:start}
 .intl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -166,7 +165,7 @@ h1,h2,h3,p{margin:0}
  .hero-pin{--iy:34%;--ix:24%}
  .hg-txt{font-size:calc((100vw - 32px) / 6.4)!important;line-height:.92!important}
  .hero-final{bottom:96px}
- .frase-pie{flex-direction:column;align-items:center;gap:4px;bottom:24px}.frase-pie span:first-child{margin-left:0}
+ .frase-pie{flex-direction:column;align-items:center;gap:4px;bottom:24px}.frase-pie span:last-child{margin-right:0}
  .nac>article{grid-template-columns:1fr 112px;gap:16px}
  .cab-intl{grid-template-columns:1fr!important;gap:12px!important}
  .intl-grid{gap:10px}.dest .nombre{font-size:15px}.dest .info{left:12px;right:12px;bottom:12px}
@@ -175,7 +174,7 @@ h1,h2,h3,p{margin:0}
 }
 @media (prefers-reduced-motion:reduce){.bar,.cajon,.cajon .marca,.hito,.dest img,.opc{transition:none}.hero-x{height:100vh!important}.hero-pin{position:relative!important}.hero-media,.hero-h1,.hero-x .navlink,.logo-b,.hero-fin{animation:none!important}.logo-c{animation:none!important;opacity:0}.hero-pista{display:none!important}.hero-grande{display:none!important}.hero-marco{display:none!important}.frase-txt .c,.frase-txt .cursor{animation:none!important;opacity:1}.frase-txt .cursor{display:none}}
 </style>
-<style>.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
+<style>[hidden]{display:none!important}.hito.pre{opacity:0;transform:translateY(48px)}img{max-width:100%}</style>
 </head>
 <body>
 <div style="width:100%;overflow-x:clip">
@@ -209,7 +208,7 @@ h1,h2,h3,p{margin:0}
     <a class="pill pill-white" href="#planes" style="margin-top:28px">Ver planes <span class="ico"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
   </div>
 
-  <div class="wrap hero-fin" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:flex-end;gap:16px;color:#FFFFFF">
+  <div class="wrap hero-fin" style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;align-items:flex-end;justify-content:flex-start;gap:16px;color:#FFFFFF">
     <button id="pausa" type="button" aria-label="Pausar el video" style="background:none;border:1px solid rgba(255,255,255,.5);color:#FFFFFF;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
       <svg id="icoPlay" hidden aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"></path></svg>
       <svg id="icoPause" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"></rect><rect x="14" y="4.5" width="4" height="15" rx="1"></rect></svg>
@@ -467,7 +466,7 @@ h1,h2,h3,p{margin:0}
   </div>
 </footer>
 
-<a href="#" aria-label="Escribir a Hoturis por WhatsApp" style="position:fixed;left:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);z-index:5">
+<a href="#" aria-label="Escribir a Hoturis por WhatsApp" style="position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);z-index:5">
   <svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"></path><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.5l1-1.2 2 .9c-.2 1.2-1.2 2-2.4 1.8A6.5 6.5 0 0 1 8.2 9.6C8 8.4 8.8 7.4 10 7.2l.9 2-1.2 1"></path></svg>
 </a>
 
